@@ -5,6 +5,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Catalogues from './pages/Catalogues';
 import InteriorDesign from './pages/InteriorDesign';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   return (
@@ -13,20 +15,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="services" element={
-            <div className="container py-20 text-center">
-              <h1 className="text-4xl font-bold mb-6">Our Services</h1>
-              <p>This page is under construction.</p>
-            </div>
-          } />
+          <Route path="services" element={<Services />} />
           <Route path="interior-design" element={<InteriorDesign />} />
           <Route path="catalogues" element={<Catalogues />} />
-          <Route path="portfolio" element={
-            <div className="container py-20 text-center">
-              <h1 className="text-4xl font-bold mb-6">Our Portfolio</h1>
-              <p>This page is under construction.</p>
-            </div>
-          } />
+          <Route path="portfolio" element={<Portfolio />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={
             <div className="container py-20 text-center">

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="450px" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#53565C" />
+  
+  <!-- Background Grid -->
+  <g opacity="0.1">
+    <path d="M0,50 L800,50" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,100 L800,100" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,150 L800,150" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,200 L800,200" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,250 L800,250" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,300 L800,300" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,350 L800,350" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,400 L800,400" stroke="#ECE7D0" stroke-width="1" />
+    
+    <path d="M50,0 L50,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M100,0 L100,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M150,0 L150,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M200,0 L200,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M250,0 L250,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M300,0 L300,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M350,0 L350,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M400,0 L400,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M450,0 L450,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M500,0 L500,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M550,0 L550,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M600,0 L600,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M650,0 L650,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M700,0 L700,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M750,0 L750,450" stroke="#ECE7D0" stroke-width="1" />
+  </g>
+  
+  <!-- Service Circles -->
+  <g transform="translate(400, 225)" opacity="0.9">
+    <!-- Main Circle -->
+    <circle cx="0" cy="0" r="120" fill="#ECE7D0" />
+    
+    <!-- Connecting Lines -->
+    <line x1="0" y1="-140" x2="0" y2="-200" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="120" y1="0" x2="170" y2="0" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="0" y1="140" x2="0" y2="200" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="-120" y1="0" x2="-170" y2="0" stroke="#ECE7D0" stroke-width="4" />
+    
+    <!-- Satellite Circles -->
+    <circle cx="0" cy="-200" r="40" fill="#ECE7D0" stroke="#53565C" stroke-width="2" />
+    <circle cx="170" cy="0" r="40" fill="#ECE7D0" stroke="#53565C" stroke-width="2" />
+    <circle cx="0" cy="200" r="40" fill="#ECE7D0" stroke="#53565C" stroke-width="2" />
+    <circle cx="-170" cy="0" r="40" fill="#ECE7D0" stroke="#53565C" stroke-width="2" />
+    
+    <!-- Center Text -->
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Services</text>
+    
+    <!-- Satellite Icons/Text -->
+    <text x="0" y="-200" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Sourcing</text>
+    <text x="170" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Quality</text>
+    <text x="0" y="200" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Delivery</text>
+    <text x="-170" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Logistics</text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g opacity="0.2">
+    <rect x="50" y="50" width="100" height="60" fill="#ECE7D0" />
+    <rect x="650" y="50" width="100" height="60" fill="#ECE7D0" />
+    <rect x="50" y="340" width="100" height="60" fill="#ECE7D0" />
+    <rect x="650" y="340" width="100" height="60" fill="#ECE7D0" />
+  </g>
+</svg> 

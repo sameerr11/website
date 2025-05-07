@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="450px" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa" />
+  
+  <!-- Stone/Marble texture background -->
+  <rect width="800" height="450" fill="#efefef" />
+  <g opacity="0.1">
+    <path d="M0,0 L800,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,50 L750,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,100 L700,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,150 L650,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,200 L600,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,250 L550,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,300 L500,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,350 L450,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,400 L400,450" stroke="#000" stroke-width="0.5" />
+    <path d="M0,450 L350,450" stroke="#000" stroke-width="0.5" />
+    
+    <path d="M50,0 L800,400" stroke="#000" stroke-width="0.5" />
+    <path d="M100,0 L800,350" stroke="#000" stroke-width="0.5" />
+    <path d="M150,0 L800,300" stroke="#000" stroke-width="0.5" />
+    <path d="M200,0 L800,250" stroke="#000" stroke-width="0.5" />
+    <path d="M250,0 L800,200" stroke="#000" stroke-width="0.5" />
+    <path d="M300,0 L800,150" stroke="#000" stroke-width="0.5" />
+    <path d="M350,0 L800,100" stroke="#000" stroke-width="0.5" />
+    <path d="M400,0 L800,50" stroke="#000" stroke-width="0.5" />
+    <path d="M450,0 L800,0" stroke="#000" stroke-width="0.5" />
+  </g>
+  
+  <!-- Brick Wall -->
+  <g transform="translate(50, 100)">
+    <rect width="200" height="150" fill="#d9534f" />
+    
+    <!-- Brick pattern -->
+    <g fill="none" stroke="#fff" stroke-width="2">
+      <path d="M0,25 L200,25" />
+      <path d="M0,50 L200,50" />
+      <path d="M0,75 L200,75" />
+      <path d="M0,100 L200,100" />
+      <path d="M0,125 L200,125" />
+      
+      <path d="M25,0 L25,25" />
+      <path d="M75,0 L75,25" />
+      <path d="M125,0 L125,25" />
+      <path d="M175,0 L175,25" />
+      
+      <path d="M50,25 L50,50" />
+      <path d="M100,25 L100,50" />
+      <path d="M150,25 L150,50" />
+      
+      <path d="M25,50 L25,75" />
+      <path d="M75,50 L75,75" />
+      <path d="M125,50 L125,75" />
+      <path d="M175,50 L175,75" />
+      
+      <path d="M50,75 L50,100" />
+      <path d="M100,75 L100,100" />
+      <path d="M150,75 L150,100" />
+      
+      <path d="M25,100 L25,125" />
+      <path d="M75,100 L75,125" />
+      <path d="M125,100 L125,125" />
+      <path d="M175,100 L175,125" />
+      
+      <path d="M50,125 L50,150" />
+      <path d="M100,125 L100,150" />
+      <path d="M150,125 L150,150" />
+    </g>
+  </g>
+  
+  <!-- Wooden Planks -->
+  <g transform="translate(300, 100)">
+    <rect width="200" height="150" fill="#d9a066" />
+    
+    <!-- Wood grain pattern -->
+    <g fill="none" stroke="#b58046" stroke-width="1">
+      <path d="M0,20 L200,20" />
+      <path d="M0,40 L200,40" />
+      <path d="M0,60 L200,60" />
+      <path d="M0,80 L200,80" />
+      <path d="M0,100 L200,100" />
+      <path d="M0,120 L200,120" />
+      <path d="M0,140 L200,140" />
+      
+      <path d="M20,0 C25,15 15,30 25,45 C35,60 25,75 35,90 C45,105 35,120 45,135 C55,150 45,165 55,180" />
+      <path d="M60,0 C65,15 55,30 65,45 C75,60 65,75 75,90 C85,105 75,120 85,135 C95,150 85,165 95,180" />
+      <path d="M100,0 C105,15 95,30 105,45 C115,60 105,75 115,90 C125,105 115,120 125,135 C135,150 125,165 135,180" />
+      <path d="M140,0 C145,15 135,30 145,45 C155,60 145,75 155,90 C165,105 155,120 165,135 C175,150 165,165 175,180" />
+      <path d="M180,0 C185,15 175,30 185,45 C195,60 185,75 195,90 C205,105 195,120 205,135 C215,150 205,165 215,180" />
+    </g>
+  </g>
+  
+  <!-- Bathroom tiles -->
+  <g transform="translate(550, 100)">
+    <rect width="200" height="150" fill="#cadeeb" />
+    
+    <!-- Tile pattern -->
+    <g fill="none" stroke="#a0b8c5" stroke-width="1">
+      <path d="M0,30 L200,30" />
+      <path d="M0,60 L200,60" />
+      <path d="M0,90 L200,90" />
+      <path d="M0,120 L200,120" />
+      
+      <path d="M40,0 L40,150" />
+      <path d="M80,0 L80,150" />
+      <path d="M120,0 L120,150" />
+      <path d="M160,0 L160,150" />
+    </g>
+  </g>
+  
+  <!-- Window frame -->
+  <g transform="translate(300, 300)">
+    <rect width="200" height="100" fill="#f8f9fa" stroke="#495057" stroke-width="4" />
+    <line x1="100" y1="0" x2="100" y2="100" stroke="#495057" stroke-width="4" />
+    <line x1="0" y1="50" x2="200" y2="50" stroke="#495057" stroke-width="4" />
+  </g>
+  
+  <!-- Furniture -->
+  <g transform="translate(550, 300)">
+    <rect x="40" y="20" width="120" height="15" fill="#8b572a" />
+    <rect x="50" y="35" width="100" height="50" fill="#b2805d" />
+    <rect x="55" y="85" width="90" height="15" fill="#8b572a" />
+  </g>
+  
+  <!-- Stone slabs -->
+  <g transform="translate(50, 300)">
+    <rect width="200" height="100" fill="#e2e2e2" />
+    
+    <!-- Stone texture -->
+    <g fill="none" stroke="#d0d0d0" stroke-width="1">
+      <path d="M20,20 L60,10 L100,25 L140,15 L180,30" />
+      <path d="M30,40 L70,35 L110,45 L150,40 L170,50" />
+      <path d="M10,60 L50,55 L90,65 L130,60 L190,70" />
+      <path d="M25,80 L65,75 L105,85 L145,80 L185,90" />
+    </g>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">
+    Premium Construction Materials
+  </text>
+</svg> 

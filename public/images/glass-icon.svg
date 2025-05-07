@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="3" y="3" width="18" height="18" rx="1" />
+    <line x1="12" y1="3" x2="12" y2="21" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <path d="M16,8 C17.1045695,8 18,7.1045695 18,6 C18,4.8954305 17.1045695,4 16,4" />
+    <path d="M8,16 C6.8954305,16 6,16.8954305 6,18 C6,19.1045695 6.8954305,20 8,20" />
+  </g>
+</svg> 

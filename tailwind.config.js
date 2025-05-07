@@ -9,6 +9,7 @@ export default {
       colors: {
         primary: '#ECE7D0',
         secondary: '#53565C',
+        'secondary-dark': '#44474D',
       },
       fontFamily: {
         futura: ['Futura', 'Montserrat', 'sans-serif'],

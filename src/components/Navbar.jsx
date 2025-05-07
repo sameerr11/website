@@ -10,22 +10,22 @@ const Navbar = () => {
         <Link to="/" className="flex items-center space-x-3">
           {/* Logo */}
           <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
-            <span className="text-secondary font-bold text-xl">C</span>
+            <span className="text-secondary font-bold text-xl">S</span>
           </div>
           <div>
-            <span className="text-primary font-bold text-2xl tracking-wider">COMPANY</span>
+            <span className="text-primary font-bold text-2xl tracking-wider">STELLA DI PIETRA</span>
           </div>
         </Link>
         
         {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-primary hover:text-white font-medium transition-colors py-2">Home</Link>
-          <Link to="/about" className="text-primary hover:text-white font-medium transition-colors py-2">About</Link>
-          <Link to="/services" className="text-primary hover:text-white font-medium transition-colors py-2">Services</Link>
-          <Link to="/interior-design" className="text-primary hover:text-white font-medium transition-colors py-2">Interior Design</Link>
-          <Link to="/catalogues" className="text-primary hover:text-white font-medium transition-colors py-2">Catalogues</Link>
-          <Link to="/portfolio" className="text-primary hover:text-white font-medium transition-colors py-2">Portfolio</Link>
-          <Link to="/contact" className="bg-primary text-secondary font-bold py-2 px-4 rounded-lg hover:bg-white transition-colors">Contact</Link>
+          <Link to="/" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">Home</Link>
+          <Link to="/about" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">About</Link>
+          <Link to="/services" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">Services</Link>
+          <Link to="/interior-design" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">Interior Design</Link>
+          <Link to="/catalogues" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">Catalogues</Link>
+          <Link to="/portfolio" className="text-primary font-medium transition-colors py-2 border-b-2 border-transparent hover:border-primary">Portfolio</Link>
+          <Link to="/contact" className="bg-primary text-secondary font-bold rounded-lg transition-all btn">Contact</Link>
         </div>
         
         {/* Mobile menu button */}
@@ -45,13 +45,13 @@ const Navbar = () => {
         <div className="md:hidden bg-secondary border-t border-gray-700 mt-4 shadow-lg">
           <div className="container py-4">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">Home</Link>
-              <Link to="/about" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">About</Link>
-              <Link to="/services" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">Services</Link>
-              <Link to="/interior-design" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">Interior Design</Link>
-              <Link to="/catalogues" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">Catalogues</Link>
-              <Link to="/portfolio" className="text-primary hover:text-white font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-700">Portfolio</Link>
-              <Link to="/contact" className="bg-primary text-secondary font-bold py-2 px-4 rounded-lg hover:bg-white transition-colors text-center">Contact</Link>
+              <Link to="/" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">Home</Link>
+              <Link to="/about" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">About</Link>
+              <Link to="/services" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">Services</Link>
+              <Link to="/interior-design" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">Interior Design</Link>
+              <Link to="/catalogues" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">Catalogues</Link>
+              <Link to="/portfolio" className="text-primary font-medium transition-colors py-2 px-4 rounded-lg hover:bg-secondary-dark">Portfolio</Link>
+              <Link to="/contact" className="bg-primary text-secondary font-bold text-center rounded-lg btn">Contact</Link>
             </div>
           </div>
         </div>

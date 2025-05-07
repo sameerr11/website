@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="450px" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#53565C" />
+  
+  <!-- Background Grid -->
+  <g opacity="0.1">
+    <path d="M0,50 L800,50" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,100 L800,100" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,150 L800,150" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,200 L800,200" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,250 L800,250" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,300 L800,300" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,350 L800,350" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M0,400 L800,400" stroke="#ECE7D0" stroke-width="1" />
+    
+    <path d="M50,0 L50,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M100,0 L100,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M150,0 L150,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M200,0 L200,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M250,0 L250,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M300,0 L300,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M350,0 L350,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M400,0 L400,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M450,0 L450,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M500,0 L500,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M550,0 L550,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M600,0 L600,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M650,0 L650,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M700,0 L700,450" stroke="#ECE7D0" stroke-width="1" />
+    <path d="M750,0 L750,450" stroke="#ECE7D0" stroke-width="1" />
+  </g>
+  
+  <!-- Portfolio Showcase -->
+  <g transform="translate(400, 225)" opacity="0.9">
+    <!-- Central Display Frame -->
+    <rect x="-150" y="-100" width="300" height="200" fill="#ECE7D0" rx="10" ry="10" />
+    
+    <!-- Project Thumbnails -->
+    <rect x="-130" y="-80" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    <rect x="-30" y="-80" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    <rect x="70" y="-80" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    <rect x="-130" y="0" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    <rect x="-30" y="0" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    <rect x="70" y="0" width="80" height="60" fill="#53565C" rx="5" ry="5" />
+    
+    <!-- Connecting Elements -->
+    <circle cx="-180" cy="0" r="30" fill="#ECE7D0" />
+    <circle cx="180" cy="0" r="30" fill="#ECE7D0" />
+    <circle cx="0" cy="-130" r="30" fill="#ECE7D0" />
+    <circle cx="0" cy="130" r="30" fill="#ECE7D0" />
+    
+    <path d="M-150,0 L-150,0" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="-150" y1="0" x2="-160" y2="0" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="150" y1="0" x2="160" y2="0" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="0" y1="-100" x2="0" y2="-110" stroke="#ECE7D0" stroke-width="4" />
+    <line x1="0" y1="100" x2="0" y2="110" stroke="#ECE7D0" stroke-width="4" />
+    
+    <!-- Portfolio Labels -->
+    <text x="-180" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Residential</text>
+    <text x="180" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Commercial</text>
+    <text x="0" y="-130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Renovations</text>
+    <text x="0" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C">Projects</text>
+    
+    <!-- Portfolio Title -->
+    <text x="0" y="-130" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#53565C" transform="translate(0, 30)">PORTFOLIO</text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g opacity="0.2">
+    <rect x="50" y="50" width="100" height="60" fill="#ECE7D0" />
+    <rect x="650" y="50" width="100" height="60" fill="#ECE7D0" />
+    <rect x="50" y="340" width="100" height="60" fill="#ECE7D0" />
+    <rect x="650" y="340" width="100" height="60" fill="#ECE7D0" />
+  </g>
+</svg> 
