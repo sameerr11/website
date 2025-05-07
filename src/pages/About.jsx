@@ -80,38 +80,42 @@ const About = () => {
           <h2 className="text-3xl font-bold text-center mb-16">Our End-to-End Process</h2>
           <div className="flex flex-col md:flex-row justify-between items-start">
             <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-primary text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-white relative transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
                 <span className="text-4xl font-bold">1</span>
+                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
               </div>
               <h3 className="text-xl font-bold mb-2">Material Selection</h3>
               <p>Expert guidance on choosing the right materials</p>
             </div>
             <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-primary opacity-40 w-full rounded-full mx-4"></div>
+              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
             </div>
             <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-primary text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-white relative transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
                 <span className="text-4xl font-bold">2</span>
+                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
               </div>
               <h3 className="text-xl font-bold mb-2">Sourcing</h3>
               <p>From our global network of trusted suppliers</p>
             </div>
             <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-primary opacity-40 w-full rounded-full mx-4"></div>
+              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
             </div>
             <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-primary text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-white relative transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
                 <span className="text-4xl font-bold">3</span>
+                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
               </div>
               <h3 className="text-xl font-bold mb-2">Quality Control</h3>
               <p>Rigorous inspection to ensure premium quality</p>
-            </div>
+                </div>
             <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-primary opacity-40 w-full rounded-full mx-4"></div>
-            </div>
+              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
+                </div>
             <div className="md:w-1/5 flex flex-col items-center text-center">
-              <div className="w-28 h-28 bg-primary text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-white relative transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
                 <span className="text-4xl font-bold">4</span>
+                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
               </div>
               <h3 className="text-xl font-bold mb-2">Delivery</h3>
               <p>Timely delivery to your preferred location</p>
@@ -125,7 +129,7 @@ const About = () => {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Project?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how our premium materials and end-to-end solutions can elevate your construction project.</p>
-          <Link to="/contact" className="inline-block bg-secondary text-primary font-bold rounded-xl text-xl btn">
+          <Link to="/contact" className="bg-secondary text-primary font-bold py-4 px-10 rounded-xl inline-block hover:bg-white transition-all shadow-lg transform hover:scale-105 text-xl">
             Get in Touch
           </Link>
         </div>
