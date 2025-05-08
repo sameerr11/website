@@ -1,74 +1,89 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import logoImage from '../assets/Logo.png';
 
-const Footer = () => {
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-secondary text-primary py-12">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">COMPANY</h3>
-            <p className="mb-4">Creating innovative solutions for your business needs.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-                </svg>
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0H8zm.717 7.019a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-2 3.5a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/>
-                </svg>
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-            </div>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-section">
+          <div className="footer-logo-container">
+            <img src={logoImage} alt="Stella Di Pietra" className="footer-logo-image" />
           </div>
-          
-          <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link to="/interior-design" className="hover:text-white transition-colors">Interior Design</Link></li>
-              <li><Link to="/catalogues" className="hover:text-white transition-colors">Catalogues</Link></li>
-              <li><Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mobile Apps</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Digital Marketing</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Brand Strategy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Interior Design</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <address className="not-italic">
-              <p className="mb-2">1234 Business Avenue</p>
-              <p className="mb-2">City, State 56789</p>
-              <p className="mb-2">Phone: (123) 456-7890</p>
-              <p className="mb-2">Email: info@company.com</p>
-            </address>
+          <p className="footer-description">
+            Premium construction materials supplier specializing in sourcing and delivering high-quality materials for luxury residential, commercial, and hospitality projects.
+          </p>
+          <div className="social-icons">
+            <a href="#" aria-label="Facebook" className="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16">
+                <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter" className="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+                <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" className="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" className="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+                <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+              </svg>
+            </a>
           </div>
         </div>
         
-        <div className="border-t border-gray-600 mt-8 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} COMPANY. All rights reserved.</p>
+        <div className="footer-section">
+          <h3 className="footer-title">Quick Links</h3>
+          <ul className="footer-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/services">Our Services</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+            <li><Link to="/catalogues">Catalogues</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+          </ul>
+        </div>
+        
+        <div className="footer-section">
+          <h3 className="footer-title">Our Services</h3>
+          <ul className="footer-links">
+            <li><Link to="/services">Material Sourcing</Link></li>
+            <li><Link to="/services">Quality Control</Link></li>
+            <li><Link to="/services">Logistics & Importing</Link></li>
+            <li><Link to="/services">On-Time Delivery</Link></li>
+            <li><Link to="/services">Interior Planning Services</Link></li>
+          </ul>
+        </div>
+        
+        <div className="footer-section">
+          <h3 className="footer-title">Contact Information</h3>
+          <address className="footer-contact">
+            <p><strong>Address:</strong> Sheikh Zayed Road, Dubai, UAE</p>
+            <p><strong>Phone:</strong> +971 4 123 4567</p>
+            <p><strong>Email:</strong> info@stelladipietra.com</p>
+            <p><strong>Hours:</strong> Sunday - Thursday: 9am - 6pm</p>
+          </address>
+          <Link to="/contact" className="contact-btn">Get in Touch</Link>
+        </div>
+      </div>
+      
+      <div className="footer-bottom">
+        <p>&copy; {currentYear} Stella Di Pietra. All rights reserved.</p>
+        <div className="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
         </div>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer; 

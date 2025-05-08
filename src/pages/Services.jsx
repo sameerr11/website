@@ -1,231 +1,246 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Services = () => {
+function Services() {
+  const mainServices = [
+    {
+      id: 1,
+      title: 'Material Sourcing',
+      description: 'Premium materials for any project, sourced globally. We leverage our extensive network of suppliers to provide you with the finest selection of construction materials worldwide.',
+      icon: '🏗️',
+      features: [
+        'Extensive global supplier network',
+        'Custom material specifications',
+        'Sustainable and eco-friendly options',
+        'Competitive pricing through direct relationships'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Quality Control',
+      description: 'Rigorous checks to ensure the highest quality. Our dedicated quality assurance team performs comprehensive inspections at every stage of the sourcing process.',
+      icon: '🔍',
+      features: [
+        'Pre-shipment inspections',
+        'Material testing and certification',
+        'Compliance with international standards',
+        'Detailed quality documentation'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Logistics & Importing',
+      description: 'Full management of the importing process. We handle all aspects of logistics, from factory to site, ensuring smooth and efficient transportation of your materials.',
+      icon: '🚢',
+      features: [
+        'Complete customs documentation',
+        'International shipping coordination',
+        'Storage and warehousing solutions',
+        'Inventory management systems'
+      ]
+    },
+    {
+      id: 4,
+      title: 'On-Time Delivery',
+      description: 'Reliable, efficient delivery to your location. We prioritize punctuality and precision in our delivery services, allowing you to plan your projects with confidence.',
+      icon: '🚚',
+      features: [
+        'Scheduled delivery timelines',
+        'Real-time tracking systems',
+        'Flexible delivery options',
+        'Project-specific logistics planning'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Interior Planning Services',
+      description: 'Expert interior planning to elevate your space. We collaborate with Dubai\'s leading interior designers to transform your vision into reality with exceptional attention to detail and innovative solutions.',
+      icon: '🏠',
+      features: [
+        'Space planning and layout optimization',
+        'Design concept development',
+        'Premium material selection and integration',
+        'Lighting plans and color schemes',
+        'Bespoke furniture and joinery design'
+      ]
+    }
+  ];
+
+  const materialCategories = [
+    {
+      id: 1,
+      title: 'Tiles & Stone',
+      items: ['Porcelain Tiles', 'Ceramic Tiles', 'Natural Stone', 'Marble', 'Granite', 'Limestone'],
+      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Tiles+%26+Stone'
+    },
+    {
+      id: 2,
+      title: 'Bathroom & Fixtures',
+      items: ['Luxury Faucets', 'Designer Sinks', 'Shower Systems', 'Bathtubs', 'Toilets', 'Bathroom Accessories'],
+      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Bathroom+%26+Fixtures'
+    },
+    {
+      id: 3,
+      title: 'Building Materials',
+      items: ['Premium Timber', 'Glass Solutions', 'Windows & Doors', 'Structural Elements', 'Insulation Materials', 'Roofing Systems'],
+      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Building+Materials'
+    },
+    {
+      id: 4,
+      title: 'Interior Elements',
+      items: ['Custom Furniture', 'Lighting Solutions', 'Wall Treatments', 'Decorative Panels', 'Ceiling Systems', 'Flooring Options'],
+      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Interior+Elements'
+    }
+  ];
+
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl max-w-3xl mx-auto">End-to-end construction material solutions for your project needs.</p>
+    <div className="services-page">
+      <section className="hero">
+        <div className="hero-detailed-layer"></div>
+        <div className="hero-content">
+          <h1>Our Services</h1>
+          <p>Comprehensive construction material solutions for your projects</p>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h2 className="text-3xl font-bold mb-6">Comprehensive Solutions</h2>
-              <p className="mb-4">At Stella Di Pietra, we provide a comprehensive range of services designed to make your construction material needs seamless and worry-free.</p>
-              <p className="mb-4">From initial material selection to final delivery, our experienced team handles every aspect of the supply chain with precision and care, ensuring you receive only the highest quality products for your projects.</p>
-              <p>We pride ourselves on attention to detail, industry expertise, and our commitment to exceeding client expectations with every delivery.</p>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <div className="aspect-video bg-secondary text-primary rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
-                <img src="/images/services-overview.svg" alt="Construction Materials Services" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="services-intro">
+        <div className="container">
+          <div className="intro-content">
+            <h2>Comprehensive Solutions for Every Project</h2>
+            <p className="lead-text">
+              At Stella Di Pietra, we provide a comprehensive range of services designed to meet all your construction material needs. From sourcing premium materials globally to ensuring timely delivery to your location, we handle every aspect of the supply chain with expertise and precision.
+            </p>
 
-      {/* Detailed Services */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Premium Services</h2>
-          
-          {/* Material Sourcing */}
-          <div className="flex flex-col md:flex-row items-center mb-20">
-            <div className="md:w-1/2 order-2 md:order-1 md:pr-12">
-              <h3 className="text-2xl font-bold mb-4">Material Sourcing</h3>
-              <p className="mb-4">We meticulously source premium construction materials from trusted suppliers worldwide, providing you with access to the finest quality products for your projects.</p>
-              <p className="mb-4">Our global network of partners allows us to procure rare and specialized materials, ensuring you have exactly what your project demands, regardless of complexity or scale.</p>
-              <p className="mb-4">We source a diverse range of materials including:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Premium tiles and ceramics from Italy and Spain</li>
-                <li>Exquisite natural stone from quarries worldwide</li>
-                <li>High-end bathroom fixtures and fittings</li>
-                <li>Precision-engineered windows and glass</li>
-                <li>Sustainably harvested timber products</li>
-                <li>Designer furniture and architectural elements</li>
-              </ul>
-              <p>Our sourcing experts work closely with you to understand your specific requirements, budget constraints, and design vision to find the perfect materials for your project.</p>
-            </div>
-            <div className="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <div className="h-64 bg-primary flex items-center justify-center">
-                  <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center">
-                    <img src="/images/sourcing-icon.svg" alt="Material Sourcing" className="w-12 h-12" />
-                  </div>
-                </div>
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Global Network</h4>
-                  <p>Access to premium materials from around the world, carefully selected to meet your exact specifications.</p>
-                </div>
+            <div className="services-highlight">
+              <div className="highlight-content">
+                <p>Our end-to-end approach eliminates the complexity of managing multiple suppliers and logistics channels, allowing you to focus on what matters most – your construction project.</p>
               </div>
-            </div>
-          </div>
-          
-          {/* Quality Control */}
-          <div className="flex flex-col md:flex-row items-center mb-20">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <div className="h-64 bg-primary flex items-center justify-center">
-                  <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center">
-                    <img src="/images/quality-icon.svg" alt="Quality Control" className="w-12 h-12" />
-                  </div>
-                </div>
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Rigorous Standards</h4>
-                  <p>Comprehensive quality assurance processes to guarantee only the finest materials reach your project site.</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h3 className="text-2xl font-bold mb-4">Quality Control</h3>
-              <p className="mb-4">We implement stringent quality control measures at every stage of the supply chain to ensure that all materials meet our exacting standards before reaching your project site.</p>
-              <p className="mb-4">Our quality assurance process includes:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Pre-shipment inspections at supplier facilities</li>
-                <li>Material testing for durability, strength, and performance</li>
-                <li>Verification of authentic certification and documentation</li>
-                <li>Quality grading according to international standards</li>
-                <li>Thorough documentation of all quality checks</li>
-                <li>Final inspection before delivery to clients</li>
-              </ul>
-              <p className="mb-4">Our dedicated quality control specialists work diligently to identify and resolve any issues before materials leave our facilities, ensuring you receive only premium products that will stand the test of time.</p>
-              <p>With Stella Di Pietra, you can have absolute confidence in the quality and authenticity of every material we supply.</p>
-            </div>
-          </div>
-          
-          {/* Logistics & Importing */}
-          <div className="flex flex-col md:flex-row items-center mb-20">
-            <div className="md:w-1/2 order-2 md:order-1 md:pr-12">
-              <h3 className="text-2xl font-bold mb-4">Logistics & Importing</h3>
-              <p className="mb-4">We handle the entire importing process from start to finish, navigating complex international shipping regulations, customs clearance, and documentation to ensure smooth and timely delivery of your materials.</p>
-              <p className="mb-4">Our logistics services include:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Efficient international shipping arrangements</li>
-                <li>Customs clearance and documentation management</li>
-                <li>Regulatory compliance and certification verification</li>
-                <li>Secure warehousing and inventory management</li>
-                <li>Careful handling of delicate and specialty materials</li>
-                <li>Real-time tracking and status updates</li>
-              </ul>
-              <p className="mb-4">Our logistics team has extensive experience in managing complex international shipments of valuable and specialized construction materials.</p>
-              <p>We take the stress out of importing, allowing you to focus on your project while we ensure your materials arrive safely and on schedule.</p>
-            </div>
-            <div className="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <div className="h-64 bg-primary flex items-center justify-center">
-                  <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center">
-                    <img src="/images/logistics-icon.svg" alt="Logistics & Importing" className="w-12 h-12" />
-                  </div>
-                </div>
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Seamless Process</h4>
-                  <p>End-to-end management of importing logistics, from international shipping to final delivery coordination.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* On-Time Delivery */}
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <div className="h-64 bg-primary flex items-center justify-center">
-                  <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center">
-                    <img src="/images/delivery-icon.svg" alt="On-Time Delivery" className="w-12 h-12" />
-                  </div>
-                </div>
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Reliable Delivery</h4>
-                  <p>Punctual and dependable delivery service coordinated to align perfectly with your project schedule.</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h3 className="text-2xl font-bold mb-4">On-Time Delivery</h3>
-              <p className="mb-4">We understand that project timelines are critical. Our reliable delivery service ensures your materials arrive exactly when you need them, preventing costly delays and keeping your project on schedule.</p>
-              <p className="mb-4">Our delivery service advantages include:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Precise scheduling aligned with your project timeline</li>
-                <li>Flexible delivery options to accommodate your needs</li>
-                <li>Careful handling and appropriate transportation methods</li>
-                <li>Professional installation support when required</li>
-                <li>Complete documentation and delivery verification</li>
-                <li>Post-delivery inspection and issue resolution</li>
-              </ul>
-              <p className="mb-4">We maintain close communication throughout the delivery process, providing you with updates and ensuring everything proceeds according to plan.</p>
-              <p>Our commitment to on-time delivery is a cornerstone of our service, allowing you to plan with confidence and maintain smooth project progression.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Why Choose Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { 
-                title: 'One-Stop Solution', 
-                description: 'Comprehensive end-to-end service covering all aspects of construction material supply.',
-                icon: 'solution-icon' 
-              },
-              { 
-                title: 'Exceptional Quality', 
-                description: 'Premium materials that meet rigorous quality standards for durability and performance.',
-                icon: 'quality-badge-icon' 
-              },
-              { 
-                title: 'Expert Guidance', 
-                description: 'Professional advice and recommendations from industry specialists.',
-                icon: 'expert-icon' 
-              },
-              { 
-                title: 'Time Efficiency', 
-                description: 'Streamlined processes that save you time and prevent project delays.',
-                icon: 'efficiency-icon' 
-              },
-              { 
-                title: 'Cost Effectiveness', 
-                description: 'Competitive pricing and value optimization for your budget.',
-                icon: 'cost-icon' 
-              },
-              { 
-                title: 'Personalized Service', 
-                description: 'Tailored approach to meet your unique project requirements.',
-                icon: 'personalized-icon' 
-              }
-            ].map((benefit, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow p-6">
-                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-bold">{benefit.icon}</span>
+      <section className="main-services">
+        <div className="container">
+          <h2>Our Core Services</h2>
+          <div className="section-description">
+            <p>Explore our comprehensive range of premium construction material services designed to meet the highest standards of quality and reliability.</p>
+          </div>
+          <div className="services-grid">
+            {mainServices.map(service => (
+              <div key={service.id} className="service-card">
+                <div className="service-header">
+                  <div className="service-icon">{service.icon}</div>
+                  <h3>{service.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-center mb-2">{benefit.title}</h3>
-                <p className="text-center text-gray-600">{benefit.description}</p>
+                <p className="service-description">{service.description}</p>
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-secondary text-primary py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">Contact us today to discuss your construction material needs and discover how our services can elevate your project.</p>
-          <Link to="/contact" className="inline-block bg-primary text-secondary font-bold rounded-xl text-xl btn">
-            Get in Touch
-          </Link>
+      <section className="interior-planning-detail">
+        <div className="container">
+          <h2>Interior Planning Excellence</h2>
+          <div className="interior-planning-content">
+            <div className="interior-planning-text">
+              <p>
+                At Stella Di Pietra, we offer expert interior planning services to elevate the design and functionality of your space. Our team works closely with one of Dubai's leading interior designers, ensuring that your vision is brought to life with exceptional attention to detail and innovative solutions.
+              </p>
+              <p>
+                Our interior planning services encompass every element of your space, from layout optimization to the final selection of materials, furniture, and finishes. Whether you're renovating a home, designing a commercial space, or working on a large-scale development, we tailor our approach to meet your specific needs.
+              </p>
+              <p>
+                With the expertise of world-renowned interior designers and our seamless coordination, Stella Di Pietra ensures that every design detail aligns with your vision, delivering a sophisticated and functional space that exceeds your expectations.
+              </p>
+            </div>
+            <div className="interior-planning-image">
+              <img src="https://placehold.co/800x500/ECE7D0/53565C?text=Interior+Planning" alt="Interior Planning Services" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="process-section">
+        <div className="container">
+          <h2>Our Streamlined Process</h2>
+          <div className="process-steps">
+            <div className="process-step">
+              <div className="step-number">1</div>
+              <div className="step-content">
+                <h3>Consultation & Requirements</h3>
+                <p>We begin by understanding your project needs, specifications, and timeline requirements to tailor our services accordingly.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-number">2</div>
+              <div className="step-content">
+                <h3>Material Selection & Sourcing</h3>
+                <p>Our team sources the finest materials that match your requirements, providing samples and detailed specifications for approval.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-number">3</div>
+              <div className="step-content">
+                <h3>Quality Assurance & Logistics</h3>
+                <p>We conduct thorough quality checks before coordinating the shipping, importing, and logistics process.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-number">4</div>
+              <div className="step-content">
+                <h3>Delivery & Support</h3>
+                <p>Your materials are delivered on schedule to your specified location, with ongoing support throughout the project lifecycle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="materials-showcase">
+        <div className="container">
+          <h2>Premium Materials We Provide</h2>
+          <div className="materials-grid">
+            {materialCategories.map(category => (
+              <div key={category.id} className="material-card">
+                <div className="material-image">
+                  <img src={category.image} alt={category.title} />
+                  <div className="material-overlay">
+                    <h3>{category.title}</h3>
+                  </div>
+                </div>
+                <div className="material-details">
+                  <ul className="material-items">
+                    {category.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                  <Link to="/catalogues" className="view-more">View Catalogue</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="services-cta">
+        <div className="container">
+          <h2>Ready to Transform Your Construction Projects?</h2>
+          <p>Partner with Stella Di Pietra for premium materials and seamless supply chain solutions</p>
+          <div className="cta-buttons">
+            <Link to="/contact" className="cta-button">Request a Consultation</Link>
+            <Link to="/catalogues" className="secondary-button">Browse Our Catalogues</Link>
+          </div>
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default Services; 

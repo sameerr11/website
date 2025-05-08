@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" opacity="0.5">
+  <style>
+    .grid { stroke: rgba(83, 86, 92, 0.3); stroke-width: 0.5; }
+    .blueprint { stroke: rgba(83, 86, 92, 0.6); stroke-width: 1; fill: none; }
+    .accent { stroke: rgba(166, 124, 82, 0.4); stroke-width: 1.5; fill: none; }
+    .thin { stroke-width: 0.5; }
+    .dims { stroke: rgba(83, 86, 92, 0.4); stroke-width: 0.5; fill: none; }
+    .text { font-family: monospace; font-size: 10px; fill: rgba(83, 86, 92, 0.6); }
+    .dot { fill: rgba(83, 86, 92, 0.5); stroke: none; }
+    .dot-accent { fill: rgba(166, 124, 82, 0.5); stroke: none; }
+  </style>
+  
+  <!-- Background Grid -->
+  <path class="grid" d="M0,100 L800,100 M0,200 L800,200 M0,300 L800,300 M0,400 L800,400 M0,500 L800,500 M0,600 L800,600 M0,700 L800,700 M100,0 L100,800 M200,0 L200,800 M300,0 L300,800 M400,0 L400,800 M500,0 L500,800 M600,0 L600,800 M700,0 L700,800"/>
+  
+  <!-- Architectural Elements -->
+  <rect class="blueprint" x="100" y="100" width="300" height="300"/>
+  <rect class="blueprint" x="150" y="150" width="200" height="200"/>
+  <line class="blueprint" x1="100" y1="100" x2="150" y2="150"/>
+  <line class="blueprint" x1="400" y1="100" x2="350" y2="150"/>
+  <line class="blueprint" x1="100" y1="400" x2="150" y2="350"/>
+  <line class="blueprint" x1="400" y1="400" x2="350" y2="350"/>
+  <circle class="blueprint" cx="250" cy="250" r="80"/>
+  <circle class="blueprint" cx="250" cy="250" r="40"/>
+  <path class="blueprint" d="M60,450 L200,450 L200,600 L60,600 Z"/>
+  <path class="blueprint" d="M450,450 L700,450 L700,650 L550,650 L550,550 L450,550 Z"/>
+  
+  <!-- Dimensions -->
+  <path class="dims" d="M40,450 L40,600 M60,430 L200,430 M60,620 L200,620"/>
+  <text class="text" x="35" y="525">150</text>
+  <line class="dims" x1="35" y1="450" x2="45" y2="450"/>
+  <line class="dims" x1="35" y1="600" x2="45" y2="600"/>
+  <text class="text" x="130" y="425">140</text>
+  <line class="dims" x1="60" y1="425" x2="60" y2="435"/>
+  <line class="dims" x1="200" y1="425" x2="200" y2="435"/>
+  
+  <!-- Accent Elements -->
+  <path class="accent" d="M350,500 L600,500 L600,250 L450,100"/>
+  <circle class="accent" cx="350" cy="500" r="5"/>
+  <circle class="accent" cx="600" cy="500" r="5"/>
+  <circle class="accent" cx="600" cy="250" r="5"/>
+  <circle class="accent" cx="450" cy="100" r="5"/>
+  <path class="accent" d="M250,650 L250,750 L650,750 L650,650"/>
+  
+  <!-- Connection Points -->
+  <circle class="dot" cx="100" cy="100" r="3"/>
+  <circle class="dot" cx="100" cy="200" r="3"/>
+  <circle class="dot" cx="100" cy="300" r="3"/>
+  <circle class="dot" cx="100" cy="400" r="3"/>
+  <circle class="dot" cx="200" cy="100" r="3"/>
+  <circle class="dot" cx="300" cy="100" r="3"/>
+  <circle class="dot" cx="400" cy="100" r="3"/>
+  <circle class="dot" cx="200" cy="400" r="3"/>
+  <circle class="dot" cx="300" cy="400" r="3"/>
+  <circle class="dot" cx="400" cy="400" r="3"/>
+  <circle class="dot" cx="400" cy="200" r="3"/>
+  <circle class="dot" cx="400" cy="300" r="3"/>
+  <circle class="dot-accent" cx="450" cy="450" r="4"/>
+  <circle class="dot-accent" cx="550" cy="550" r="4"/>
+  <circle class="dot-accent" cx="550" cy="650" r="4"/>
+  <circle class="dot-accent" cx="700" cy="650" r="4"/>
+  <circle class="dot-accent" cx="700" cy="450" r="4"/>
+  
+  <!-- Diagonal Grid Lines -->
+  <path class="grid thin" d="M0,0 L800,800 M800,0 L0,800 M0,400 L400,0 M400,800 L800,400 M0,400 L400,800 M400,0 L800,400"/>
+</svg> 

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" opacity="0.7">
+  <style>
+    .bg-grid {stroke: rgba(83, 86, 92, 0.2); stroke-width: 0.5;}
+    .detail {stroke: rgba(83, 86, 92, 0.7); stroke-width: 0.7; fill: none;}
+    .detail-accent {stroke: rgba(166, 124, 82, 0.5); stroke-width: 0.8; fill: none;}
+    .text {font-family: monospace; font-size: 8px; fill: rgba(83, 86, 92, 0.7);}
+  </style>
+  
+  <!-- Detailed Floor Plan -->
+  <path class="detail" d="M50,50 L350,50 L350,350 L50,350 Z"/>
+  <path class="detail" d="M150,50 L150,350"/>
+  <path class="detail" d="M250,50 L250,350"/>
+  <path class="detail" d="M50,150 L350,150"/>
+  <path class="detail" d="M50,250 L350,250"/>
+  <path class="detail" d="M350,150 L550,150 L550,550 L150,550 L150,350"/>
+  
+  <!-- Accent Elements and Measurements -->
+  <path class="detail-accent" d="M250,250 L450,450"/>
+  <path class="detail-accent" d="M150,50 L550,450"/>
+  <path class="detail-accent" d="M50,250 L350,550"/>
+  <circle class="detail-accent" cx="250" cy="250" r="50"/>
+  <circle class="detail-accent" cx="350" cy="350" r="30"/>
+  
+  <!-- Coordinates and Labels -->
+  <text class="text" x="120" y="40">A</text>
+  <text class="text" x="220" y="40">B</text>
+  <text class="text" x="320" y="40">C</text>
+  <text class="text" x="40" y="120">1</text>
+  <text class="text" x="40" y="220">2</text>
+  <text class="text" x="40" y="320">3</text>
+  
+  <!-- 3D Element -->
+  <path class="detail" d="M390,180 L510,180 L510,300 L390,300 Z"/>
+  <path class="detail" d="M390,180 L410,160 L530,160 L510,180"/>
+  <path class="detail" d="M510,180 L530,160 L530,280 L510,300"/>
+  
+  <!-- Curved Elements -->
+  <path class="detail-accent" d="M150,450 A100,100 0 0,0 250,550"/>
+  <path class="detail-accent" d="M450,150 A100,100 0 0,0 550,250"/>
+</svg> 

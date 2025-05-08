@@ -1,141 +1,145 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const About = () => {
+function About() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">About Stella Di Pietra</h1>
-          <p className="text-xl max-w-3xl mx-auto">Premium construction solutions for residential and commercial projects.</p>
+    <div className="about-page">
+      <section className="hero">
+        <div className="hero-detailed-layer"></div>
+        <div className="hero-content">
+          <h1>About Stella Di Pietra</h1>
+          <p>Dedicated to architectural excellence through premium construction materials</p>
         </div>
       </section>
 
-      {/* About Us Main */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
-              <p className="mb-4">Stella Di Pietra is a leading provider of end-to-end construction solutions, specialising in sourcing, supplying, and delivering premium materials for residential and commercial projects.</p>
-              <p className="mb-4">We offer a comprehensive one-package solution for builders, developers, designers, and homeowners. From material selection to quality checks and timely delivery, we ensure every product meets the highest standards.</p>
-              <p>We manage the entire supply chain, including importing, quality control, logistics, and delivery to your preferred location.</p>
+      <section className="about-intro">
+        <div className="about-container">
+          <div className="about-intro-content">
+            <h2>Who We Are</h2>
+            <p className="lead-text">Stella Di Pietra is a leading provider of end-to-end construction solutions, specialising in sourcing, supplying, and delivering premium materials for residential and commercial projects.</p>
+            <div className="about-image">
+              <img src="https://placehold.co/1200x700/ECE7D0/53565C?text=Stella+Di+Pietra" alt="Stella Di Pietra headquarters" />
             </div>
-            <div className="md:w-1/2 md:pl-12">
-              <div className="aspect-video bg-secondary text-primary rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
-                <img src="/images/construction-materials.svg" alt="Premium Construction Materials" className="w-full h-full object-cover" />
-              </div>
+            <div className="about-text-block">
+              <p>We offer a comprehensive one-package solution for builders, developers, designers, and homeowners. From material selection to quality checks and timely delivery, we ensure every product meets the highest standards.</p>
+              <p>We manage the entire supply chain, including importing, quality control, logistics, and delivery to your preferred location. Our wide network of trusted suppliers allows us to source tiles, fixtures, bathroom ware, natural stone, timber, glass, windows, furniture and more, ensuring you receive only the finest materials and products.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Services */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Premium Materials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: 'Tiles & Ceramics', icon: '/images/tile-icon.svg' },
-              { name: 'Natural Stone', icon: '/images/stone-icon.svg' },
-              { name: 'Bathroom Ware', icon: '/images/bathroom-icon.svg' },
-              { name: 'Timber Products', icon: '/images/timber-icon.svg' },
-              { name: 'Windows & Glass', icon: '/images/glass-icon.svg' },
-              { name: 'Designer Furniture', icon: '/images/furniture-icon.svg' }
-            ].map((material, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow p-6 text-secondary">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <img src={material.icon} alt={material.name} className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold text-center mb-2">{material.name}</h3>
-                <p className="text-center text-gray-600">Premium quality products sourced from trusted suppliers worldwide.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission and Vision */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Mission & Vision</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-secondary text-primary p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-              <p className="mb-4">To offer seamless, high-quality construction material solutions, delivering products efficiently while maintaining the highest standards of service.</p>
-              <div className="w-24 h-1 bg-primary mt-6"></div>
+      <section className="mission-vision-section">
+        <div className="mission-vision-bg"></div>
+        <div className="mission-vision-container">
+          <div className="mission-box">
+            <div className="mission-content">
+              <h2>Our Mission</h2>
+              <p>To offer seamless, high-quality construction material solutions, delivering products efficiently while maintaining the highest standards of service.</p>
             </div>
-            <div className="bg-secondary text-primary p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-              <p className="mb-4">To be the leading global supplier of construction materials, providing end-to-end solutions for all your building needs.</p>
-              <div className="w-24 h-1 bg-primary mt-6"></div>
+          </div>
+          <div className="vision-box">
+            <div className="vision-content">
+              <h2>Our Vision</h2>
+              <p>To be the leading global supplier of construction materials, providing end-to-end solutions for all your building needs.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Supply Chain */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Our End-to-End Process</h2>
-          <div className="flex flex-col md:flex-row justify-between items-start">
-            <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
-                <span className="text-4xl font-bold">1</span>
-                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
+      <section className="services-overview">
+        <div className="about-container">
+          <h2>Our Comprehensive Solutions</h2>
+          <div className="services-grid">
+            <div className="service-item">
+              <div className="service-icon">
+                <span>🏗️</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Material Selection</h3>
-              <p>Expert guidance on choosing the right materials</p>
+              <h3>Material Sourcing</h3>
+              <p>We source premium materials from trusted suppliers worldwide, ensuring quality and sustainability.</p>
             </div>
-            <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
-            </div>
-            <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
-                <span className="text-4xl font-bold">2</span>
-                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
+            <div className="service-item">
+              <div className="service-icon">
+                <span>🔍</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Sourcing</h3>
-              <p>From our global network of trusted suppliers</p>
+              <h3>Quality Control</h3>
+              <p>Rigorous testing and inspection processes to guarantee all products meet the highest industry standards.</p>
             </div>
-            <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
+            <div className="service-item">
+              <div className="service-icon">
+                <span>🚚</span>
+              </div>
+              <h3>Logistics & Delivery</h3>
+              <p>Efficient supply chain management with reliable, timely delivery to your project location.</p>
             </div>
-            <div className="md:w-1/5 flex flex-col items-center text-center mb-10 md:mb-0">
-              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
-                <span className="text-4xl font-bold">3</span>
-                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
+            <div className="service-item">
+              <div className="service-icon">
+                <span>📋</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Quality Control</h3>
-              <p>Rigorous inspection to ensure premium quality</p>
-                </div>
-            <div className="hidden md:flex w-auto flex-grow items-center justify-center">
-              <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 w-full rounded-full mx-4"></div>
-                </div>
-            <div className="md:w-1/5 flex flex-col items-center text-center">
-              <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/70 text-secondary rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-secondary relative">
-                <span className="text-4xl font-bold">4</span>
-                <div className="absolute w-full h-full rounded-full border-4 border-white/20 animate-pulse"></div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Delivery</h3>
-              <p>Timely delivery to your preferred location</p>
+              <h3>Project Consultation</h3>
+              <p>Expert advice on material selection tailored to your specific project requirements and budget.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-primary text-secondary py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Project?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how our premium materials and end-to-end solutions can elevate your construction project.</p>
-          <Link to="/contact" className="bg-secondary text-primary font-bold py-4 px-10 rounded-xl inline-block hover:bg-white transition-all shadow-lg transform hover:scale-105 text-xl">
-            Get in Touch
-          </Link>
+      <section className="materials-section">
+        <div className="about-container">
+          <h2>Premium Materials We Provide</h2>
+          <div className="materials-grid">
+            <div className="material-category">
+              <h3>Tiles & Flooring</h3>
+              <ul>
+                <li>Ceramic & Porcelain Tiles</li>
+                <li>Natural Stone Tiles</li>
+                <li>Marble & Granite</li>
+                <li>Engineered Wood</li>
+              </ul>
+            </div>
+            <div className="material-category">
+              <h3>Bathroom & Fixtures</h3>
+              <ul>
+                <li>Luxury Bathroom Fittings</li>
+                <li>Designer Fixtures</li>
+                <li>Sanitary Ware</li>
+                <li>Shower Systems</li>
+              </ul>
+            </div>
+            <div className="material-category">
+              <h3>Building Materials</h3>
+              <ul>
+                <li>Premium Timber</li>
+                <li>Glass Solutions</li>
+                <li>Windows & Doors</li>
+                <li>Structural Components</li>
+              </ul>
+            </div>
+            <div className="material-category">
+              <h3>Interior Finishing</h3>
+              <ul>
+                <li>Custom Furniture</li>
+                <li>Lighting Solutions</li>
+                <li>Decorative Elements</li>
+                <li>Wall Treatments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-cta">
+        <div className="about-container">
+          <div className="cta-content">
+            <h2>Ready to Elevate Your Construction Projects?</h2>
+            <p>Partner with Stella Di Pietra for premium materials and seamless supply chain solutions.</p>
+            <div className="cta-buttons">
+              <Link to="/contact" className="cta-button">Contact Our Team</Link>
+              <Link to="/catalogues" className="secondary-button">Browse Our Catalogues</Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default About; 

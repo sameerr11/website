@@ -1,241 +1,253 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Portfolio = () => {
+function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const portfolioItems = [
+    {
+      id: 1,
+      title: 'Luxury Beachfront Villa',
+      category: 'residential',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Luxury+Villa',
+      description: 'A stunning beachfront property featuring imported Italian marble, custom glass installations, and premium timber finishes.',
+      client: 'Private Client',
+      location: 'Coastal California',
+      services: 'Material Sourcing, Quality Control, Logistics & Delivery',
+      highlights: [
+        'Custom-cut Italian Calacatta marble',
+        'Handcrafted timber elements',
+        'Floor-to-ceiling glass facade',
+        'Seamless indoor-outdoor living spaces'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Modern Office Complex',
+      category: 'commercial',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Office+Complex',
+      description: 'A sustainable office development with emphasis on natural lighting, premium fixtures, and eco-friendly materials.',
+      client: 'TechInnovate Corp',
+      location: 'Metropolitan Business District',
+      services: 'Material Sourcing, Logistics & Importing, On-Time Delivery',
+      highlights: [
+        'LEED-certified materials throughout',
+        'Custom designed glass partitions',
+        'Energy-efficient lighting systems',
+        'Acoustically optimized interior elements'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Boutique Hotel Renovation',
+      category: 'hospitality',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Hotel+Renovation',
+      description: 'Complete renovation of a boutique hotel, including custom bathroom fixtures, premium flooring, and bespoke furniture.',
+      client: 'Luxury Stays Group',
+      location: 'Historic District',
+      services: 'Material Sourcing, Quality Control, Delivery',
+      highlights: [
+        'Designer bathroom collections',
+        'Custom-stained hardwood flooring',
+        'Artisan crafted furniture pieces',
+        'Luxury textiles and wall coverings'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Urban Apartment Building',
+      category: 'residential',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Apartment+Building',
+      description: 'A modern residential complex featuring premium fixtures, custom windows, and high-end finishes throughout.',
+      client: 'Urban Development Partners',
+      location: 'City Center',
+      services: 'Material Sourcing, Logistics & Importing, Quality Control',
+      highlights: [
+        'Sound-insulated wall systems',
+        'Custom kitchen installations',
+        'Premium European fixtures',
+        'Engineered flooring solutions'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Waterfront Restaurant',
+      category: 'hospitality',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Waterfront+Restaurant',
+      description: 'An elegant dining establishment featuring weather-resistant materials, custom lighting, and premium indoor-outdoor furnishings.',
+      client: 'Fine Dining Experiences',
+      location: 'Harbor District',
+      services: 'Material Sourcing, On-Time Delivery',
+      highlights: [
+        'Weather-resistant decking materials',
+        'Custom lighting installations',
+        'Commercial-grade kitchen surfaces',
+        'Imported stone feature walls'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Corporate Headquarters',
+      category: 'commercial',
+      image: 'https://placehold.co/800x600/ECE7D0/53565C?text=Corporate+Headquarters',
+      description: 'A prestigious corporate office featuring custom marble floors, specialty glass, and bespoke executive furniture.',
+      client: 'Global Finance Corporation',
+      location: 'Financial District',
+      services: 'Material Sourcing, Quality Control, Logistics & Importing',
+      highlights: [
+        'Premium marble flooring',
+        'Customized executive furnishings',
+        'Specialty glass partitions',
+        'Integrated technology infrastructure'
+      ]
+    },
+  ];
+
+  const featuredCaseStudy = {
+    title: "Luxury Oceanfront Residence",
+    description: "A comprehensive material solution for an award-winning coastal luxury residence, showcasing our ability to source and deliver the finest materials for high-end construction.",
+    image: "https://placehold.co/1200x600/ECE7D0/53565C?text=Featured+Case+Study",
+    challenge: "The client required rare, premium materials with specific aesthetic qualities while ensuring on-time delivery despite global supply chain disruptions. All materials needed to withstand coastal environmental conditions without compromising on luxury.",
+    solution: "Our team worked directly with specialized quarries in Italy to source custom-cut marble and with sustainable timber suppliers in Scandinavia. We implemented a dedicated quality control process and created a tailored logistics plan to ensure all materials arrived on schedule despite international shipping challenges.",
+    results: "The project was completed on schedule with zero material defects or delays. The residence went on to win regional architectural awards, with specific mention of the exceptional material quality. Our comprehensive approach saved the client an estimated 15% on material costs while delivering superior products."
+  };
+
+  const filteredItems = activeFilter === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeFilter);
+
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
-          <p className="text-xl max-w-3xl mx-auto">Showcasing our finest projects and material solutions across residential and commercial spaces.</p>
+    <div className="portfolio-page">
+      <section className="hero">
+        <div className="hero-detailed-layer"></div>
+        <div className="hero-content">
+          <h1>Our Portfolio</h1>
+          <p>Discover our showcase of exceptional projects and material applications</p>
         </div>
       </section>
 
-      {/* Portfolio Overview */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h2 className="text-3xl font-bold mb-6">Excellence in Every Project</h2>
-              <p className="mb-4">At Stella Di Pietra, we take pride in our portfolio of successful projects across various sectors of the construction industry.</p>
-              <p className="mb-4">From luxurious residential homes to large-scale commercial developments, our expertise in sourcing and delivering premium materials has contributed to the success of countless stunning spaces.</p>
-              <p>Each project in our portfolio represents our unwavering commitment to quality, attention to detail, and our ability to bring architectural visions to life through exceptional materials.</p>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <div className="aspect-video bg-secondary text-primary rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
-                <img src="/images/portfolio-overview.svg" alt="Portfolio Projects Overview" className="w-full h-full object-cover" />
+      <section className="portfolio-intro">
+        <div className="container">
+          <div className="intro-content">
+            <h2>Excellence in Every Project</h2>
+            <p className="lead-text">
+              Our portfolio features a variety of successful projects, including luxury homes, commercial developments, and large-scale renovations. Each case study highlights our commitment to excellence and our ability to source and deliver high-quality materials for every type of project.
+            </p>
+            <div className="portfolio-stats">
+              <div className="stat-item">
+                <span className="stat-number">150+</span>
+                <span className="stat-label">Successful Projects</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">45+</span>
+                <span className="stat-label">Countries Sourced From</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">98%</span>
+                <span className="stat-label">Client Satisfaction</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Project Categories */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Project Categories</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gray-200 relative overflow-hidden">
-                <img src="/images/luxury-residential.jpg" alt="Luxury Residential" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-secondary bg-opacity-20"></div>
-              </div>
-              <div className="p-6 text-secondary">
-                <h3 className="font-bold text-xl mb-2">Luxury Residential</h3>
-                <p className="text-gray-600 mb-4">Exquisite homes featuring premium materials that create spaces of unparalleled beauty and comfort.</p>
-                <Link to="#residential" className="text-secondary font-semibold hover:underline">Explore Projects →</Link>
-              </div>
+      <section className="featured-case-study">
+        <div className="container">
+          <h2>Featured Case Study</h2>
+          <div className="case-study-container">
+            <div className="case-study-image">
+              <img src={featuredCaseStudy.image} alt={featuredCaseStudy.title} />
             </div>
-            
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gray-200 relative overflow-hidden">
-                <img src="/images/commercial-projects.jpg" alt="Commercial Developments" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-secondary bg-opacity-20"></div>
-              </div>
-              <div className="p-6 text-secondary">
-                <h3 className="font-bold text-xl mb-2">Commercial Developments</h3>
-                <p className="text-gray-600 mb-4">Innovative commercial spaces where functionality meets sophisticated design through quality materials.</p>
-                <Link to="#commercial" className="text-secondary font-semibold hover:underline">Explore Projects →</Link>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gray-200 relative overflow-hidden">
-                <img src="/images/renovation-projects.jpg" alt="Renovations & Restorations" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-secondary bg-opacity-20"></div>
-              </div>
-              <div className="p-6 text-secondary">
-                <h3 className="font-bold text-xl mb-2">Renovations & Restorations</h3>
-                <p className="text-gray-600 mb-4">Transformative renovation projects that breathe new life into spaces through carefully selected materials.</p>
-                <Link to="#renovations" className="text-secondary font-semibold hover:underline">Explore Projects →</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Case Studies */}
-      <section className="bg-primary text-secondary py-20" id="residential">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Featured Case Studies</h2>
-          
-          {/* Luxury Villa Project */}
-          <div className="flex flex-col md:flex-row items-center mb-20">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src="/images/luxury-villa.jpg" alt="Luxury Villa Project" className="w-full h-96 object-cover" />
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Coastal Luxury Villa</h4>
-                  <p className="text-gray-600 mb-4">Private Residence | Completed 2023</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Italian Marble</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Custom Tiling</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Premium Timber</span>
-                  </div>
+            <div className="case-study-content">
+              <h3>{featuredCaseStudy.title}</h3>
+              <p className="case-study-description">{featuredCaseStudy.description}</p>
+              
+              <div className="case-study-details">
+                <div className="case-detail">
+                  <h4>The Challenge</h4>
+                  <p>{featuredCaseStudy.challenge}</p>
+                </div>
+                <div className="case-detail">
+                  <h4>Our Solution</h4>
+                  <p>{featuredCaseStudy.solution}</p>
+                </div>
+                <div className="case-detail">
+                  <h4>The Results</h4>
+                  <p>{featuredCaseStudy.results}</p>
                 </div>
               </div>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h3 className="text-2xl font-bold mb-4">Luxury Villa Project</h3>
-              <p className="mb-4">This stunning coastal villa required materials that could withstand the harsh marine environment while delivering exceptional aesthetic appeal.</p>
-              <p className="mb-4">Our team sourced rare Italian marble for the interior spaces, complemented by custom-designed ceramic tiles and premium hardwood timber for the outdoor decking areas.</p>
-              <p className="mb-4">Key highlights of this project included:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Sourcing of rare Calacatta gold marble for master bathrooms</li>
-                <li>Custom production of hand-painted ceramic tiles for kitchen backsplash</li>
-                <li>Procurement of weather-resistant teak decking from sustainable sources</li>
-                <li>Specialized glass installations for unobstructed ocean views</li>
-                <li>Sound-dampening insulation materials for ultimate privacy</li>
-              </ul>
-              <p>The result is a breathtaking residence that perfectly balances luxury with durability, providing the homeowners with a space that will retain its beauty for generations.</p>
-            </div>
-          </div>
-          
-          {/* Commercial Office Complex */}
-          <div className="flex flex-col md:flex-row items-center mb-20" id="commercial">
-            <div className="md:w-1/2 order-2 md:order-1 md:pr-12">
-              <h3 className="text-2xl font-bold mb-4">Modern Office Complex</h3>
-              <p className="mb-4">This award-winning commercial development required materials that balanced aesthetics, sustainability, and practical considerations for a busy corporate environment.</p>
-              <p className="mb-4">Working closely with the architects, we sourced and supplied a comprehensive package of materials that met the demanding specifications while staying within budget constraints.</p>
-              <p className="mb-4">The project highlights included:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Acoustic ceiling panels that reduced noise while enhancing the space's aesthetics</li>
-                <li>Specialized flooring materials balancing durability with comfort for high-traffic areas</li>
-                <li>Energy-efficient glass façade with thermal regulation properties</li>
-                <li>Custom stone cladding for statement walls and entrance areas</li>
-                <li>Modular and flexible partition materials for adaptable office layouts</li>
-              </ul>
-              <p>The completed complex has set a new standard for commercial developments in the region, combining functionality with striking design elements.</p>
-            </div>
-            <div className="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src="/images/office-complex.jpg" alt="Modern Office Complex" className="w-full h-96 object-cover" />
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Fusion Commercial Center</h4>
-                  <p className="text-gray-600 mb-4">Corporate Headquarters | Completed 2022</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Acoustic Panels</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Smart Glass</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Stone Cladding</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Heritage Restoration */}
-          <div className="flex flex-col md:flex-row items-center" id="renovations">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src="/images/heritage-restoration.jpg" alt="Heritage Building Restoration" className="w-full h-96 object-cover" />
-                <div className="bg-white p-6 text-secondary">
-                  <h4 className="font-bold text-xl mb-2">Victoria Heritage Building</h4>
-                  <p className="text-gray-600 mb-4">Historical Restoration | Completed 2021</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Reclaimed Materials</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Period Matching</span>
-                    <span className="bg-primary bg-opacity-20 text-secondary text-sm px-3 py-1 rounded-full">Heritage Techniques</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h3 className="text-2xl font-bold mb-4">Heritage Building Restoration</h3>
-              <p className="mb-4">This challenging restoration project involved sourcing materials that would preserve the historical integrity of a 19th-century building while implementing modern safety standards.</p>
-              <p className="mb-4">Our team worked with heritage conservation experts to identify and source authentic period materials, or create faithful modern reproductions where original materials were unavailable.</p>
-              <p className="mb-4">Notable achievements in this project included:</p>
-              <ul className="list-disc pl-6 space-y-2 mb-4">
-                <li>Sourcing reclaimed timber from buildings of the same era for authentic flooring</li>
-                <li>Reproducing decorative plasterwork using traditional techniques and materials</li>
-                <li>Finding rare matching bricks from historical suppliers for façade repairs</li>
-                <li>Implementing modern insulation and safety materials discretely without compromising authenticity</li>
-                <li>Recreating period-specific paint colors using natural pigments</li>
-              </ul>
-              <p>The restored building now stands as a testament to historical preservation while functioning as a modern, usable space that will endure for another century.</p>
+              
+              <Link to="/contact" className="case-study-cta">Discuss Your Project</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-secondary text-primary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Client Testimonials</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                quote: "Stella Di Pietra exceeded our expectations with their ability to source exactly the materials we envisioned. Their attention to detail transformed our home renovation.",
-                author: "Sophia Anderson",
-                role: "Residential Client",
-                project: "Luxury Villa Project"
-              },
-              { 
-                quote: "Working with the team on our office complex was seamless. Their expertise in commercial materials and ability to meet our tight deadlines was impressive.",
-                author: "Michael Reynolds",
-                role: "Project Director",
-                project: "Fusion Commercial Center"
-              },
-              { 
-                quote: "The care and precision taken in finding authentic materials for our heritage building restoration was remarkable. True craftsmanship and dedication.",
-                author: "Victoria Heritage Trust",
-                role: "Conservation Committee",
-                project: "Heritage Restoration"
-              },
-              { 
-                quote: "From selection to delivery, the quality of materials and professionalism of service was unmatched. Our boutique hotel renovation would not have been possible without them.",
-                author: "James Patterson",
-                role: "Hotel Manager",
-                project: "Boutique Hotel Renovation"
-              },
-              { 
-                quote: "Their ability to source rare marble at a competitive price point saved our project budget while delivering on the luxury aesthetic we required.",
-                author: "Elizabeth Morales",
-                role: "Interior Designer",
-                project: "Penthouse Redesign"
-              },
-              { 
-                quote: "The technical knowledge of their team regarding materials suitable for our coastal property was invaluable. Five years later, everything still looks perfect.",
-                author: "Robert Chen",
-                role: "Property Developer",
-                project: "Seaside Residence"
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-secondary">
-                <svg className="w-8 h-8 text-primary opacity-30 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="mb-4 italic">{testimonial.quote}</p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-secondary font-bold text-sm">{testimonial.author.charAt(0)}</span>
+      <section className="portfolio-section">
+        <div className="container">
+          <h2>Our Projects</h2>
+          <div className="portfolio-filters">
+            <button 
+              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('all')}
+            >
+              All Projects
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'residential' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('residential')}
+            >
+              Residential
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'commercial' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('commercial')}
+            >
+              Commercial
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'hospitality' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('hospitality')}
+            >
+              Hospitality
+            </button>
+          </div>
+
+          <div className="portfolio-grid">
+            {filteredItems.map(item => (
+              <div key={item.id} className="portfolio-item">
+                <div className="portfolio-image">
+                  <img src={item.image} alt={item.title} />
+                  <div className="image-overlay">
+                    <span className="project-category">{item.category}</span>
                   </div>
-                  <div>
-                    <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                    <p className="text-xs text-gray-500">{testimonial.project}</p>
+                </div>
+                <div className="portfolio-content">
+                  <h3>{item.title}</h3>
+                  <p className="portfolio-description">{item.description}</p>
+                  <div className="project-details">
+                    <div className="detail-item">
+                      <span className="detail-label">Client:</span>
+                      <span className="detail-value">{item.client}</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="detail-label">Location:</span>
+                      <span className="detail-value">{item.location}</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="detail-label">Services:</span>
+                      <span className="detail-value">{item.services}</span>
+                    </div>
                   </div>
+                  <div className="project-highlights">
+                    <h4>Highlights</h4>
+                    <ul>
+                      {item.highlights.map((highlight, index) => (
+                        <li key={index}>{highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button className="view-project-btn">View Project Details</button>
                 </div>
               </div>
             ))}
@@ -243,39 +255,33 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Project Stats */}
-      <section className="bg-primary text-secondary py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">Our Project Impact</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { number: "150+", label: "Projects Completed" },
-              { number: "35+", label: "Countries Sourced From" },
-              { number: "98%", label: "Client Satisfaction" },
-              { number: "10K+", label: "Tons of Materials Delivered" }
-            ].map((stat, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 text-center shadow-lg">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-secondary">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+      <section className="testimonial-section">
+        <div className="container">
+          <div className="testimonial-content">
+            <div className="quote-mark">"</div>
+            <blockquote>
+              Stella Di Pietra transformed our project with their exceptional materials and commitment to quality. Their ability to source exactly what we needed, on time and within budget, was instrumental to our success. Their end-to-end supply chain management eliminated countless headaches.
+            </blockquote>
+            <div className="testimonial-author">
+              <div className="author-name">Michael Richardson</div>
+              <div className="author-title">Principal Architect, Urban Design Associates</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-secondary text-primary py-16">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">Contact us today to discuss how we can source the perfect materials for your next construction or renovation project.</p>
-          <Link to="/contact" className="inline-block bg-primary text-secondary font-bold rounded-xl text-xl btn">
-            Get in Touch
-          </Link>
+      <section className="portfolio-cta">
+        <div className="container">
+          <h2>Ready to Elevate Your Next Project?</h2>
+          <p>Partner with Stella Di Pietra for premium materials and seamless supply chain solutions</p>
+          <div className="cta-buttons">
+            <Link to="/contact" className="cta-button">Discuss Your Project</Link>
+            <Link to="/catalogues" className="secondary-button">Explore Our Materials</Link>
+          </div>
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default Portfolio; 
