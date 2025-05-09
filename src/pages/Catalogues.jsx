@@ -1,57 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchCatalogues } from '../utils/googleDriveApi';
 
 function Catalogues() {
-  const catalogues = [
-    {
-      id: 1,
-      title: 'Product Catalogue 2023',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Catalogue+2023',
-      description: 'Our complete product range with detailed specifications and pricing information. Updated for 2023 with our latest offerings and innovations.',
-      downloadLink: '#',
-      category: 'products'
-    },
-    {
-      id: 2,
-      title: 'Solutions Brochure',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Solutions+Brochure',
-      description: 'Comprehensive overview of our service offerings and case studies. Discover how we solve complex challenges for businesses across various industries.',
-      downloadLink: '#',
-      category: 'solutions'
-    },
-    {
-      id: 3,
-      title: 'Technical Specifications',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Technical+Specs',
-      description: 'Detailed technical information for engineering and implementation teams. Includes all specifications needed for successful integration.',
-      downloadLink: '#',
-      category: 'technical'
-    },
-    {
-      id: 4,
-      title: 'Industry Solutions Guide',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Industry+Solutions',
-      description: 'Specialized solutions tailored to specific industry needs. Discover sector-specific applications and success stories.',
-      downloadLink: '#',
-      category: 'solutions'
-    },
-    {
-      id: 5,
-      title: 'Design Portfolio',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Design+Portfolio',
-      description: 'Showcase of our design work across various mediums and industries. A visual journey through our creative capabilities.',
-      downloadLink: '#',
-      category: 'portfolio'
-    },
-    {
-      id: 6,
-      title: 'Annual Report 2023',
-      cover: 'https://placehold.co/400x500/ECE7D0/53565C?text=Annual+Report',
-      description: "Our company's performance, achievements, and strategic vision. A comprehensive overview of our business operations.",
-      downloadLink: '#',
-      category: 'corporate'
-    }
-  ];
+  const [catalogues, setCatalogues] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const loadCatalogues = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchCatalogues();
+        setCatalogues(data);
+        
+        // Extract unique categories
+        const uniqueCategories = [...new Set(data.map(item => item.category))];
+        setCategories(uniqueCategories);
+        
+        setLoading(false);
+      } catch (err) {
+        console.error('Failed to fetch catalogues:', err);
+        setError('Failed to load catalogues. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    loadCatalogues();
+  }, []);
+
+  // Filter catalogues by active category
+  const filteredCatalogues = activeCategory === 'all' 
+    ? catalogues 
+    : catalogues.filter(catalogue => catalogue.category === activeCategory);
 
   return (
     <div className="catalogues-page">
@@ -67,30 +50,74 @@ function Catalogues() {
         <div className="catalogues-filters">
           <h2>Browse Our Resources</h2>
           <p>Access our complete library of product catalogues and informational materials</p>
+          
+          {/* Category filters */}
+          <div className="category-filters">
+            <button 
+              className={`filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveCategory('all')}
+            >
+              All Categories
+            </button>
+            {categories.map(category => (
+              <button 
+                key={category}
+                className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="catalogues-grid">
-          {catalogues.map(catalogue => (
-            <div key={catalogue.id} className="catalogue-card">
-              <div className="catalogue-cover">
-                <img src={catalogue.cover} alt={catalogue.title} />
-                <div className="catalogue-overlay">
-                  <Link to={catalogue.downloadLink} className="view-btn">View Details</Link>
+        {loading ? (
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p>Loading catalogues...</p>
+          </div>
+        ) : error ? (
+          <div className="error-message">
+            <p>{error}</p>
+            <button 
+              className="retry-btn"
+              onClick={() => window.location.reload()}
+            >
+              Retry
+            </button>
+          </div>
+        ) : (
+          <div className="catalogues-grid">
+            {filteredCatalogues.length > 0 ? (
+              filteredCatalogues.map(catalogue => (
+                <div key={catalogue.id} className="catalogue-card">
+                  <div className="catalogue-cover">
+                    <img src={catalogue.cover} alt={catalogue.title} />
+                    <div className="catalogue-overlay">
+                      <a href={catalogue.viewLink} target="_blank" rel="noopener noreferrer" className="view-btn">
+                        View PDF
+                      </a>
+                    </div>
+                  </div>
+                  <div className="catalogue-details">
+                    <h3>{catalogue.title}</h3>
+                    <p>{catalogue.description}</p>
+                    <div className="catalogue-actions">
+                      <a href={catalogue.downloadLink} className="download-btn">
+                        <span className="download-icon">↓</span> Download PDF
+                      </a>
+                      <span className="catalogue-category">{catalogue.category}</span>
+                    </div>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="no-results">
+                <p>No catalogues found in this category.</p>
               </div>
-              <div className="catalogue-details">
-                <h3>{catalogue.title}</h3>
-                <p>{catalogue.description}</p>
-                <div className="catalogue-actions">
-                  <a href={catalogue.downloadLink} className="download-btn">
-                    <span className="download-icon">↓</span> Download PDF
-                  </a>
-                  <span className="catalogue-category">{catalogue.category}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            )}
+          </div>
+        )}
       </section>
 
       <section className="request-section">
