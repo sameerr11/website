@@ -79,12 +79,12 @@
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
-  height: 85px; /* Increased height for larger logo */
+  height: 90px; /* Increased height */
   transition: height 0.3s ease;
 }
 
 .navbar.scrolled .navbar-container {
-  height: 70px; /* Increased height when scrolled */
+  height: 75px;
 }
 
 .navbar-logo {
@@ -96,26 +96,60 @@
   align-items: center;
   z-index: 11;
   height: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem 0.5rem 0.2rem;
   transition: all 0.3s ease;
   position: relative;
+  margin-right: 15px;
+}
+
+.navbar-logo::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(236, 231, 208, 0.3), transparent);
 }
 
 .logo-image {
-  height: 65px; /* Increased size */
+  height: 70px; /* Further increased size */
   width: auto;
   transition: all 0.3s ease;
   background-color: transparent;
   border-radius: 0;
   object-fit: contain;
-  object-position: left center;
+  object-position: center center; /* Center the logo */
   margin: 0;
-  max-width: none; /* Ensure no width constraints */
-  filter: brightness(1.1) contrast(1.1); /* Enhance visibility */
+  max-width: none;
+  filter: brightness(1.15) contrast(1.15) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2)); /* Enhanced visibility with shadow */
 }
 
 .navbar.scrolled .logo-image {
-  height: 55px; /* Larger size when scrolled */
+  height: 60px;
+}
+
+.logo-text {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-primary, #ECE7D0);
+  margin-left: 16px;
+  letter-spacing: 0.8px;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.logo-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-accent, #A67C52), transparent);
+  opacity: 0.8;
 }
 
 /* Remove the box shadow and glow effects that make the logo stand out awkwardly */
@@ -2840,10 +2874,11 @@ section h2::after {
   }
   
   .logo-image {
-    height: 50px; /* Larger on mobile too */
+    height: 55px; /* Larger on mobile too */
+    object-position: left center;
   }
   
   .navbar.scrolled .logo-image {
-    height: 45px;
+    height: 48px;
   }
 }
