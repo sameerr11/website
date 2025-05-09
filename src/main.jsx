@@ -5,6 +5,7 @@ import './index.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
+import { ZIndexProvider } from './hooks/useZIndex.jsx';
 
 // Initialize AOS
 AOS.init({
@@ -15,6 +16,8 @@ AOS.init({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ZIndexProvider>
+      <App />
+    </ZIndexProvider>
   </React.StrictMode>,
 )
