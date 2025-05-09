@@ -15,7 +15,8 @@ const MOCK_CATALOGUES = [
     description: 'DOORS catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'doors'
+    category: 'doors',
+    embedLink: '#'
   },
   {
     id: 'mock-fireplace-1',
@@ -24,7 +25,8 @@ const MOCK_CATALOGUES = [
     description: 'FIREPLACE catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'fireplace'
+    category: 'fireplace',
+    embedLink: '#'
   },
   {
     id: 'mock-laundry-1',
@@ -33,7 +35,8 @@ const MOCK_CATALOGUES = [
     description: 'LAUNDRY catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'laundry'
+    category: 'laundry',
+    embedLink: '#'
   },
   {
     id: 'mock-staircase-1',
@@ -42,7 +45,8 @@ const MOCK_CATALOGUES = [
     description: 'STAIRCASE catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'staircase'
+    category: 'staircase',
+    embedLink: '#'
   },
   {
     id: 'mock-switches-1',
@@ -51,7 +55,8 @@ const MOCK_CATALOGUES = [
     description: 'SWITCHES AND SOCKETS catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'switches and sockets'
+    category: 'switches and sockets',
+    embedLink: '#'
   },
   {
     id: 'mock-tv-1',
@@ -60,7 +65,8 @@ const MOCK_CATALOGUES = [
     description: 'TV CABINETS catalogue',
     viewLink: '#',
     downloadLink: '#',
-    category: 'tv cabinets'
+    category: 'tv cabinets',
+    embedLink: '#'
   }
 ];
 
@@ -86,21 +92,30 @@ export const fetchCatalogues = async () => {
       throw new Error('No category folders found');
     }
     
-    // For each category folder, get the PDFs inside
+    // For each category folder, get the PDFs inside and any associated images
     const catalogues = [];
     for (const folder of categoryFolders) {
-      const pdfs = await getPDFsInFolder(folder.id);
+      const folderContents = await getFolderContents(folder.id);
+      const pdfs = folderContents.filter(file => file.mimeType === 'application/pdf');
+      const images = folderContents.filter(file => file.mimeType.startsWith('image/'));
       
       // Add each PDF to our catalogues array with folder name as category
       pdfs.forEach(pdf => {
+        // Try to find a matching image for this PDF
+        const baseFileName = pdf.name.replace('.pdf', '');
+        const coverImage = findMatchingImage(images, baseFileName);
+        
         catalogues.push({
           id: pdf.id,
-          title: pdf.name.replace('.pdf', ''),
-          cover: `https://drive.google.com/thumbnail?id=${pdf.id}&sz=w400-h500`,
+          title: baseFileName,
+          // PDF preview as an image - directly displays first page of PDF
+          cover: `https://drive.google.com/file/d/${pdf.id}/preview`,
           description: `${folder.name} catalogue`,
           viewLink: `https://drive.google.com/file/d/${pdf.id}/view?usp=sharing`,
           downloadLink: `https://drive.google.com/uc?export=download&id=${pdf.id}`,
-          category: folder.name.toLowerCase()
+          category: folder.name.toLowerCase(),
+          // Add an embed link for PDF preview
+          embedLink: `https://drive.google.com/file/d/${pdf.id}/preview`
         });
       });
     }
@@ -117,6 +132,30 @@ export const fetchCatalogues = async () => {
     
     throw error;
   }
+};
+
+/**
+ * Find a matching image for a PDF based on filename
+ * @param {Array} images Array of image file objects
+ * @param {string} baseFileName Base name of the PDF file (without extension)
+ * @returns {Object|null} Matching image object or null if no match found
+ */
+const findMatchingImage = (images, baseFileName) => {
+  // Try exact match first (e.g., "catalogue.pdf" → "catalogue.jpg")
+  const exactMatch = images.find(img => 
+    img.name.toLowerCase().replace(/\.(jpg|jpeg|png|gif|webp)$/i, '') === 
+    baseFileName.toLowerCase()
+  );
+  
+  if (exactMatch) return exactMatch;
+  
+  // Try to find image with similar name (e.g., "catalogue.pdf" → "catalogue-cover.jpg")
+  const partialMatch = images.find(img => 
+    img.name.toLowerCase().includes(baseFileName.toLowerCase()) ||
+    baseFileName.toLowerCase().includes(img.name.toLowerCase().replace(/\.(jpg|jpeg|png|gif|webp)$/i, ''))
+  );
+  
+  return partialMatch || null;
 };
 
 /**
@@ -138,6 +177,31 @@ const getCategoryFolders = async () => {
     return data.files || [];
   } catch (error) {
     console.error('Error getting category folders:', error);
+    throw error;
+  }
+};
+
+/**
+ * Gets all files inside a folder (both PDFs and images)
+ * @param {string} folderId Folder ID
+ * @returns {Promise<Array>} Array of file objects
+ */
+const getFolderContents = async (folderId) => {
+  try {
+    // Query for PDFs and images in the folder
+    const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+(mimeType='application/pdf'+or+mimeType+contains+'image/')&fields=files(id,name,mimeType)&key=${API_KEY}`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    if (data.error) {
+      console.error('Google API Error:', data.error);
+      throw new Error(`Google API Error: ${data.error.message}`);
+    }
+    
+    return data.files || [];
+  } catch (error) {
+    console.error('Error getting folder contents:', error);
     throw error;
   }
 };

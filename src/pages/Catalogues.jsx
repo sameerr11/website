@@ -91,8 +91,14 @@ function Catalogues() {
             {filteredCatalogues.length > 0 ? (
               filteredCatalogues.map(catalogue => (
                 <div key={catalogue.id} className="catalogue-card">
-                  <div className="catalogue-cover">
-                    <img src={catalogue.cover} alt={catalogue.title} />
+                  <div className="catalogue-cover pdf-embed-container">
+                    <iframe 
+                      src={catalogue.embedLink}
+                      title={catalogue.title}
+                      frameBorder="0"
+                      scrolling="no"
+                      className="pdf-embed"
+                    ></iframe>
                     <div className="catalogue-overlay">
                       <a href={catalogue.viewLink} target="_blank" rel="noopener noreferrer" className="view-btn">
                         View PDF

@@ -8,7 +8,7 @@
   --color-text: #333333;
   --color-light: #FFFFFF;
   --color-accent: #A67C52;
-  
+
   color-scheme: light dark;
   color: var(--color-text);
   background-color: var(--color-light);
