@@ -60,15 +60,15 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(83, 86, 92, 0.95);
+  background-color: rgba(63, 66, 72, 0.98); /* Darker, more solid background */
   transition: all 0.3s ease;
-  padding: 1.2rem 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
 }
 
 .navbar.scrolled {
   background-color: var(--color-secondary);
-  padding: 0.8rem 0;
+  padding: 0.6rem 0;
 }
 
 .navbar-container {
@@ -79,6 +79,12 @@
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
+  height: 85px; /* Increased height for larger logo */
+  transition: height 0.3s ease;
+}
+
+.navbar.scrolled .navbar-container {
+  height: 70px; /* Increased height when scrolled */
 }
 
 .navbar-logo {
@@ -88,22 +94,34 @@
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
-  margin: -15px 0; /* Add negative margin to prevent navbar from growing */
-  z-index: 11; /* Ensure logo stays above other elements */
+  z-index: 11;
+  height: 100%;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .logo-image {
-  height: 90px; /* Further increased size */
+  height: 65px; /* Increased size */
   width: auto;
   transition: all 0.3s ease;
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  background-color: transparent;
+  border-radius: 0;
   object-fit: contain;
+  object-position: left center;
+  margin: 0;
+  max-width: none; /* Ensure no width constraints */
+  filter: brightness(1.1) contrast(1.1); /* Enhance visibility */
 }
 
 .navbar.scrolled .logo-image {
-  height: 70px; /* Further increased size */
+  height: 55px; /* Larger size when scrolled */
+}
+
+/* Remove the box shadow and glow effects that make the logo stand out awkwardly */
+.navbar-logo:hover .logo-image {
+  transform: none;
+  box-shadow: none;
 }
 
 .nav-menu {
@@ -2803,4 +2821,29 @@ section h2::after {
 
 .nav-button.active::after {
   display: none !important; /* Hide active underline for button style */
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary, #ECE7D0);
+  margin-left: 12px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .logo-text {
+    display: none; /* Hide text on mobile to save space */
+  }
+  
+  .logo-image {
+    height: 50px; /* Larger on mobile too */
+  }
+  
+  .navbar.scrolled .logo-image {
+    height: 45px;
+  }
 }

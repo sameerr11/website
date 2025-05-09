@@ -34,8 +34,14 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          <img src={logoImage} alt="Stella Di Pietra" className="logo-image" />
+        <Link to="/" className="navbar-logo" aria-label="Stella Di Pietra - Home">
+          <img 
+            src={logoImage} 
+            alt="Stella Di Pietra" 
+            className="logo-image" 
+            title="Stella Di Pietra - Premium Construction Materials"
+          />
+          <span className="logo-text">Stella Di Pietra</span>
         </Link>
         
         <div className="menu-icon" onClick={toggleMenu}>
