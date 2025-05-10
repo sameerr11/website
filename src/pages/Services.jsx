@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import InteriorPlanningShowcase from '../components/InteriorPlanningShowcase';
+import '../styles/InteriorPlanningSection.css';
 
 function Services() {
   const mainServices = [
@@ -162,7 +164,7 @@ function Services() {
 
       <Divider />
 
-      <section className="interior-planning-detail" style={{ marginTop: 0, marginBottom: 0, backgroundColor: '#f8f8f8', paddingTop: '40px' }}>
+      <section className="interior-planning-detail" style={{ marginTop: 0, marginBottom: 0 }}>
         <div className="container">
           <h2>Interior Planning Excellence</h2>
           <div className="interior-planning-content">
@@ -177,8 +179,8 @@ function Services() {
                 With the expertise of world-renowned interior designers and our seamless coordination, Stella Di Pietra ensures that every design detail aligns with your vision, delivering a sophisticated and functional space that exceeds your expectations.
               </p>
             </div>
-            <div className="interior-planning-image">
-              <img src="https://placehold.co/800x500/ECE7D0/53565C?text=Interior+Planning" alt="Interior Planning Services" />
+            <div className="interior-planning-visualization">
+              <InteriorPlanningShowcase />
             </div>
           </div>
         </div>

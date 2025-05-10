@@ -1,0 +1,422 @@
+.interior-planning-showcase {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #ECE7D0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.interior-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  height: 100%;
+  padding: 15px;
+  position: relative;
+}
+
+.room-element {
+  position: relative;
+  border-radius: 6px;
+  background-color: rgba(83, 86, 92, 0.05);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.room-element:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.room-element.living-room {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 200 200'%3E%3Crect fill='%23ECE7D0' width='200' height='200'/%3E%3Cpath fill='none' stroke='%23A67C52' stroke-width='1' stroke-dasharray='4,4' d='M0,0 L200,200 M200,0 L0,200'/%3E%3C/svg%3E");
+}
+
+.room-element.kitchen {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 100'%3E%3Crect fill='%23ECE7D0' width='100' height='100'/%3E%3Cpath fill='none' stroke='%23A67C52' stroke-width='1' d='M0,0 L100,0 L100,100 L0,100 L0,0 Z M25,0 L25,100 M50,0 L50,100 M75,0 L75,100 M0,25 L100,25 M0,50 L100,50 M0,75 L100,75'/%3E%3C/svg%3E");
+}
+
+.room-element.bathroom {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 100'%3E%3Crect fill='%23ECE7D0' width='100' height='100'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23A67C52' stroke-width='1' stroke-dasharray='3,3'/%3E%3C/svg%3E");
+}
+
+.room-element.bedroom {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 100'%3E%3Crect fill='%23ECE7D0' width='100' height='100'/%3E%3Crect x='20' y='20' width='60' height='60' fill='none' stroke='%23A67C52' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.room-element.office {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 150 100'%3E%3Crect fill='%23ECE7D0' width='150' height='100'/%3E%3Cpath fill='none' stroke='%23A67C52' stroke-width='1' d='M0,0 L150,0 L150,100 L0,100 L0,0 Z M30,0 L30,100 M60,0 L60,100 M90,0 L90,100 M120,0 L120,100'/%3E%3C/svg%3E");
+}
+
+.room-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(83, 86, 92, 0.8) 0%, rgba(83, 86, 92, 0.6) 50%, rgba(83, 86, 92, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+  transform: translateY(-25%);
+}
+
+.room-element:hover .room-content {
+  opacity: 1;
+}
+
+.room-title {
+  color: #ECE7D0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: rgba(83, 86, 92, 0.85);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  border-bottom: 3px solid #A67C52;
+  letter-spacing: 0.5px;
+  min-width: 70%;
+  max-width: 90%;
+}
+
+.room-element:hover .room-title {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Room descriptions have been removed to simplify the hover display */
+
+.design-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.compass {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  opacity: 0.8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none' stroke='%2353565C' stroke-width='1'/%3E%3Cpath d='M50,2 L50,98 M2,50 L98,50' stroke='%2353565C' stroke-width='1'/%3E%3Ctext x='52' y='25' font-family='Arial' font-size='12' fill='%2353565C'%3EN%3C/text%3E%3Ctext x='52' y='80' font-family='Arial' font-size='12' fill='%2353565C'%3ES%3C/text%3E%3Ctext x='25' y='53' font-family='Arial' font-size='12' fill='%2353565C'%3EW%3C/text%3E%3Ctext x='75' y='53' font-family='Arial' font-size='12' fill='%2353565C'%3EE%3C/text%3E%3C/svg%3E");
+}
+
+.ruler {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 30px;
+  opacity: 0.6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 30' width='150' height='30'%3E%3Crect width='150' height='30' fill='none' stroke='%2353565C' stroke-width='1'/%3E%3Cpath d='M0,0 L0,30 M15,0 L15,15 M30,0 L30,30 M45,0 L45,15 M60,0 L60,30 M75,0 L75,15 M90,0 L90,30 M105,0 L105,15 M120,0 L120,30 M135,0 L135,15' stroke='%2353565C' stroke-width='1'/%3E%3C/svg%3E");
+  transform: rotate(-10deg);
+}
+
+.pencil {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  width: 8px;
+  height: 120px;
+  background: linear-gradient(to bottom, #53565C 0%, #53565C 10%, #ECE7D0 10%, #ECE7D0 90%, #A67C52 90%, #A67C52 100%);
+  transform: rotate(15deg);
+}
+
+.furniture-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.sofa-icon {
+  top: 30%;
+  left: 20%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' width='100' height='60'%3E%3Crect x='5' y='20' width='90' height='30' fill='none' stroke='%2353565C' stroke-width='2'/%3E%3Crect x='10' y='30' width='80' height='20' fill='none' stroke='%2353565C' stroke-width='2'/%3E%3Cline x1='5' y1='50' x2='5' y2='60' stroke='%2353565C' stroke-width='2'/%3E%3Cline x1='95' y1='50' x2='95' y2='60' stroke='%2353565C' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.table-icon {
+  top: 20%;
+  right: 25%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Crect x='10' y='40' width='80' height='5' fill='%2353565C'/%3E%3Cline x1='20' y1='40' x2='20' y2='90' stroke='%2353565C' stroke-width='2'/%3E%3Cline x1='80' y1='40' x2='80' y2='90' stroke='%2353565C' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.bed-icon {
+  bottom: 30%;
+  left: 15%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80' width='100' height='80'%3E%3Crect x='10' y='20' width='80' height='40' fill='none' stroke='%2353565C' stroke-width='2'/%3E%3Crect x='15' y='25' width='20' height='10' fill='none' stroke='%2353565C' stroke-width='2'/%3E%3Cline x1='10' y1='60' x2='10' y2='70' stroke='%2353565C' stroke-width='2'/%3E%3Cline x1='90' y1='60' x2='90' y2='70' stroke='%2353565C' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.interactive-element {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(166, 124, 82, 0.2);
+  border: 2px solid rgba(166, 124, 82, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #53565C;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.interactive-element:nth-child(1) {
+  top: 25%;
+  left: 20%;
+}
+
+.interactive-element:nth-child(2) {
+  top: 15%;
+  right: 25%;
+}
+
+.interactive-element:nth-child(3) {
+  bottom: 25%;
+  right: 30%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(166, 124, 82, 0.5);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(166, 124, 82, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(166, 124, 82, 0);
+  }
+}
+
+.color-palette {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.color-sample {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(83, 86, 92, 0.3);
+}
+
+.color-sample:nth-child(1) {
+  background-color: #ECE7D0;
+}
+
+.color-sample:nth-child(2) {
+  background-color: #A67C52;
+}
+
+.color-sample:nth-child(3) {
+  background-color: #53565C;
+}
+
+.color-sample:nth-child(4) {
+  background: linear-gradient(135deg, #ECE7D0 0%, #A67C52 100%);
+}
+
+.color-sample:nth-child(5) {
+  background: linear-gradient(135deg, #53565C 0%, #A67C52 100%);
+}
+
+@media (max-width: 992px) {
+  .interior-planning-showcase {
+    height: 450px;
+  }
+  
+  .room-content {
+    transform: translateY(-20%);
+  }
+  
+  .room-title {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+  }
+  
+  .compass {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .pencil {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .interior-planning-showcase {
+    height: 600px;
+  }
+  
+  .interior-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .room-content {
+    padding: 10px;
+    transform: translateY(-15%);
+  }
+  
+  .room-title {
+    font-size: 1.1rem;
+    padding: 5px 8px;
+  }
+  
+  .room-element.living-room {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  
+  .room-element.kitchen {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  
+  .room-element.bathroom {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  
+  .room-element.bedroom {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  
+  .room-element.office {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .furniture-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .interactive-element {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .ruler {
+    width: 120px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .interior-planning-showcase {
+    height: 700px;
+  }
+  
+  .interior-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  
+  .room-content {
+    padding: 8px;
+    background: linear-gradient(to top, rgba(83, 86, 92, 0.85) 0%, rgba(83, 86, 92, 0.7) 50%, rgba(83, 86, 92, 0.5) 100%);
+    transform: translateY(-10%);
+  }
+  
+  .room-title {
+    font-size: 1rem;
+    padding: 4px 6px;
+  }
+  
+  .room-element.living-room {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  
+  .room-element.kitchen {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  
+  .room-element.bathroom {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  
+  .room-element.bedroom {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+  
+  .room-element.office {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+  }
+  
+  .ruler, .pencil {
+    display: none;
+  }
+  
+  .compass {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .furniture-icon {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .color-palette {
+    gap: 5px;
+  }
+  
+  .color-sample {
+    width: 15px;
+    height: 15px;
+  }
+} 

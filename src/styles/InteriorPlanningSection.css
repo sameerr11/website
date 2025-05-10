@@ -1,0 +1,114 @@
+/* Interior Planning Section Styling */
+.interior-planning-detail {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #f8f8f8, #fff);
+  position: relative;
+  overflow: hidden;
+}
+
+.interior-planning-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 90% 10%, rgba(166, 124, 82, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(83, 86, 92, 0.05) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.interior-planning-detail h2 {
+  text-align: center;
+  color: #53565C;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  z-index: 1;
+}
+
+.interior-planning-detail h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #A67C52;
+}
+
+.interior-planning-content {
+  position: relative;
+  z-index: 1;
+}
+
+.interior-planning-text {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+
+.interior-planning-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #53565C;
+}
+
+.interior-planning-visualization {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.interior-planning-visualization:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 992px) {
+  .interior-planning-detail {
+    padding: 4rem 1.5rem;
+  }
+  
+  .interior-planning-detail h2 {
+    font-size: 2.4rem;
+  }
+  
+  .interior-planning-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .interior-planning-detail {
+    padding: 3rem 1rem;
+  }
+  
+  .interior-planning-detail h2 {
+    font-size: 2rem;
+  }
+  
+  .interior-planning-text {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .interior-planning-detail h2 {
+    font-size: 1.8rem;
+  }
+  
+  .interior-planning-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .interior-planning-visualization {
+    margin: 0 -0.5rem;
+    border-radius: 8px;
+  }
+} 
