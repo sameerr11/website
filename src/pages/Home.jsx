@@ -130,26 +130,72 @@ function Home() {
       <section className="services-highlight" style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'center', 
-        gap: '2rem',
-        background: '#53565c', // Dark background for the section
-        padding: '6rem 2rem 4rem 2rem', // Increased top padding
+        justifyContent: 'center',
+        flexDirection: 'column',
+        background: '#53565c',
+        padding: '4rem 0.75rem 3rem',
         position: 'relative',
-        width: '100%',
-        maxWidth: '1400px',
-        margin: '3rem auto 0', // Added top margin
-        borderRadius: '8px', // Optional: add rounded corners
-        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)' // Optional: subtle shadow
+        width: 'calc(100% - 1.5rem)', // Reduced side margin
+        maxWidth: '100%', // Allow full width within container
+        margin: '3rem auto 0',
+        borderRadius: '8px',
+        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
+        overflow: 'hidden',
+        boxSizing: 'border-box' // Ensure padding is included in width calculation
       }}>
         <div className="services-content" data-aos="fade-up" style={{ 
-          flex: '1',
-          maxWidth: '1000px',
+          width: '100%',
+          maxWidth: '90%', // Reduced from 1000px
           position: 'relative',
           zIndex: 2,
           textAlign: 'center',
-          margin: '0 auto'
+          margin: '0 auto',
+          padding: '0'
         }}>
-          <h2 style={{ color: '#ECE7D0' }}>End-to-End Construction Solutions</h2>
+          <h2 style={{ 
+            color: '#ECE7D0',
+            fontSize: 'clamp(1.7rem, 4.5vw, 2.4rem)', // Slightly smaller
+            marginBottom: '1.5rem',
+            wordWrap: 'break-word' // Ensure text wraps properly
+          }}>End-to-End Construction Solutions</h2>
+        </div>
+        
+        <div style={{
+          margin: '1rem auto',
+          width: '90%', // Reduced width
+          maxWidth: '320px', // Smaller max width
+          display: 'flex',
+          justifyContent: 'center',
+          zIndex: 2,
+          padding: '0'
+        }}>
+          <motion.img 
+            src={servicesImage} 
+            alt="Construction Services"
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.4,
+              ease: "easeOut"
+            }}
+            style={{
+              width: '100%',
+              height: "auto",
+              borderRadius: "8px",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
+            }}
+          />
+        </div>
+        
+        <div className="services-list-container" style={{
+          width: '90%', // Reduced from 100%
+          maxWidth: '600px', // Reduced from 800px
+          margin: '0.5rem auto 0',
+          zIndex: 2,
+          padding: '0'
+        }}>
           <motion.ul 
             className="services-list"
             initial={{ opacity: 0 }}
@@ -159,7 +205,11 @@ function Home() {
             style={{ 
               color: '#e8e8e8',
               listStylePosition: 'inside',
-              paddingLeft: 0
+              paddingLeft: 0,
+              textAlign: 'left',
+              margin: '0 auto',
+              maxWidth: '100%',
+              fontSize: 'clamp(0.85rem, 3.8vw, 1rem)' // Slightly smaller
             }}
           >
             {[
@@ -174,49 +224,37 @@ function Home() {
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                style={{ marginBottom: '12px' }}
+                style={{ 
+                  marginBottom: '10px', // Slightly reduced
+                  display: 'flex',
+                  alignItems: 'flex-start', // Align to top for better text wrapping
+                  paddingRight: '5px'
+                }}
               >
-                {service}
+                <span style={{ 
+                  color: '#ECE7D0', 
+                  marginRight: '6px',
+                  flexShrink: 0,
+                  paddingTop: '2px' 
+                }}>✓</span>
+                <span style={{ 
+                  display: 'block', 
+                  wordBreak: 'break-word' // Handle long words on small screens
+                }}>{service}</span>
               </motion.li>
             ))}
           </motion.ul>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ marginTop: '24px' }}>
+          <motion.div 
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ scale: 0.95 }} 
+            style={{ 
+              marginTop: '20px',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
             <Link to="/services" className="secondary-button">Our Services</Link>
           </motion.div>
-        </div>
-        <div 
-          data-aos="fade-left" 
-          data-aos-delay="200"
-          data-aos-duration="1000"
-          data-aos-anchor=".services-content"
-          data-aos-easing="ease-out-cubic"
-          style={{ 
-            position: 'absolute',
-            right: '50%',
-            marginRight: '-500px', /* Half the width of the content plus some spacing */
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 1
-          }}
-        >
-          <motion.img 
-            src={servicesImage} 
-            alt="Construction Services"
-            initial={{ opacity: 0, scale: 0.8, x: 50 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.4,
-              ease: "easeOut"
-            }}
-            style={{
-              maxWidth: "400px",
-              height: "auto",
-              borderRadius: "8px",
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
-            }}
-          />
         </div>
       </section>
       

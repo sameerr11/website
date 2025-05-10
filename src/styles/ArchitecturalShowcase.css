@@ -561,10 +561,39 @@
   
   .crane-element-secondary {
     right: 80px;
+    width: 100px;
+    height: 150px;
   }
   
   .company-name-overlay {
     max-width: 80%;
+    bottom: 70px;
+  }
+  
+  .cloud-2, .cloud-3 {
+    display: none;
+  }
+  
+  .compass-element {
+    width: 80px;
+    height: 80px;
+    bottom: 50px;
+    left: 40px;
+  }
+  
+  .ruler-element {
+    width: 180px;
+    height: 25px;
+    bottom: 60px;
+    right: 50px;
+  }
+  
+  .road-element {
+    width: 250px;
+  }
+  
+  .tree {
+    transform: scale(0.9);
   }
 }
 
@@ -594,10 +623,15 @@
   .windows-grid {
     gap: 8px;
     padding: 14px;
+    grid-template-rows: repeat(7, 1fr);
+  }
+  
+  .windows-grid-small {
+    grid-template-rows: repeat(5, 1fr);
   }
   
   .company-name-overlay {
-    max-width: 80%;
+    max-width: 85%;
     bottom: 60px;
     padding: 15px;
   }
@@ -625,7 +659,188 @@
     display: none;
   }
   
+  .tree-2 {
+    left: 20%;
+  }
+  
+  .tree-3 {
+    right: 20%;
+  }
+  
   .blueprint-overlay, .ruler-element {
     display: none;
+  }
+  
+  .cloud-1 {
+    width: 150px;
+    height: 40px;
+  }
+  
+  .cloud-2, .cloud-3 {
+    display: none;
+  }
+  
+  .site-element-3 {
+    display: none;
+  }
+  
+  .road-element {
+    width: 200px;
+  }
+  
+  .shooting-star {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .architectural-showcase {
+    height: 450px;
+    margin: 30px 0;
+  }
+  
+  .building-main {
+    width: 150px;
+  }
+  
+  .building-left {
+    width: 120px;
+    margin-left: -180px;
+  }
+  
+  .building-right {
+    width: 110px;
+    margin-right: -170px;
+  }
+  
+  .windows-grid {
+    gap: 6px;
+    padding: 10px;
+    grid-template-rows: repeat(6, 1fr);
+  }
+  
+  .windows-grid-small {
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+    padding: 8px;
+  }
+  
+  .company-name-overlay {
+    max-width: 90%;
+    bottom: 50px;
+    padding: 12px;
+  }
+  
+  .company-name-overlay h2 {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+  
+  .company-name-overlay p {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  
+  .crane-element-main {
+    width: 80px;
+    height: 120px;
+    top: 90px;
+    left: 40px;
+  }
+  
+  .compass-element {
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 20px;
+  }
+  
+  .tree-2, .tree-3 {
+    transform: scale(0.8);
+  }
+  
+  .tree-2 {
+    left: 15%;
+  }
+  
+  .tree-3 {
+    right: 15%;
+  }
+  
+  .site-element-1, .site-element-2 {
+    transform: scale(0.8);
+  }
+  
+  .road-element {
+    width: 160px;
+    height: 20px;
+  }
+  
+  .architectural-showcase::after {
+    height: 150px;
+  }
+}
+
+@media (max-width: 380px) {
+  .architectural-showcase {
+    height: 400px;
+  }
+  
+  .building-main {
+    width: 120px;
+  }
+  
+  .building-left {
+    width: 100px;
+    margin-left: -150px;
+  }
+  
+  .building-right {
+    width: 90px;
+    margin-right: -140px;
+  }
+  
+  .windows-grid {
+    gap: 4px;
+    padding: 8px;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .windows-grid-small {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    padding: 6px;
+  }
+  
+  .company-name-overlay {
+    max-width: 95%;
+    bottom: 40px;
+    padding: 10px;
+  }
+  
+  .company-name-overlay h2 {
+    font-size: 22px;
+  }
+  
+  .company-name-overlay p {
+    font-size: 12px;
+  }
+  
+  .crane-element-main {
+    width: 60px;
+    height: 90px;
+    top: 80px;
+    left: 30px;
+  }
+  
+  .compass-element {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .tree-2, .tree-3 {
+    transform: scale(0.7);
   }
 } 
