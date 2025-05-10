@@ -6061,155 +6061,7 @@ cite {
   padding: 0;
 }
 
-/* Comment out duplicate hero styles */
-/* The following styles are commented out to use the standardized hero styles defined earlier */
-.home-page .hero {
-  /* All these styles are now handled by the main .hero class */
-}
 
-.home-page .hero-content {
-  /* All these styles are now handled by the main .hero-content class */
-}
-
-.home-page .hero-image {
-  /* All these styles are now handled by the main .hero-image class */
-}
-
-.home-page .hero-text {
-  /* All these styles are now handled by the main .hero-text class */
-}
-
-.home-page .hero-cta {
-  /* All these styles are now handled by the main .hero-cta class */
-}
-
-.home-page .hero-cta .cta-button {
-  /* All these styles are now handled by the main .cta-button class */
-}
-
-.home-page .hero-cta .cta-button:hover {
-  /* All these styles are now handled by the main .cta-button:hover class */
-}
-
-.home-page .hero-cta .cta-button:active {
-  /* All these styles are now handled by the main .cta-button:active class */
-}
-
-.home-page .hero-cta .cta-button:focus {
-  /* All these styles are now handled by the main .cta-button:focus class */
-}
-
-.home-page .hero-cta .cta-button:disabled {
-  /* All these styles are now handled by the main .cta-button:disabled class */
-}
-
-.home-page .hero-cta .cta-button:hover:before {
-  /* All these styles are now handled by the main .cta-button:hover:before class */
-}
-
-.home-page .hero-cta .cta-button:active:before {
-  /* All these styles are now handled by the main .cta-button:active:before class */
-}
-
-.home-page .hero-cta .cta-button:focus:before {
-  /* All these styles are now handled by the main .cta-button:focus:before class */
-}
-
-.home-page .hero-cta .cta-button:disabled:before {
-  /* All these styles are now handled by the main .cta-button:disabled:before class */
-}
-
-.home-page .hero-cta .cta-button span {
-  /* All these styles are now handled by the main .cta-button span class */
-}
-
-.home-page .hero-cta .cta-button span:hover {
-  /* All these styles are now handled by the main .cta-button span:hover class */
-}
-
-.home-page .hero-cta .cta-button span:active {
-  /* All these styles are now handled by the main .cta-button span:active class */
-}
-
-.home-page .hero-cta .cta-button span:focus {
-  /* All these styles are now handled by the main .cta-button span:focus class */
-}
-
-.home-page .hero-cta .cta-button span:disabled {
-  /* All these styles are now handled by the main .cta-button span:disabled class */
-}
-
-.home-page .hero-cta .cta-button svg {
-  /* All these styles are now handled by the main .cta-button svg class */
-}
-
-.home-page .hero-cta .cta-button svg:hover {
-  /* All these styles are now handled by the main .cta-button svg:hover class */
-}
-
-.home-page .hero-cta .cta-button svg:active {
-  /* All these styles are now handled by the main .cta-button svg:active class */
-}
-
-.home-page .hero-cta .cta-button svg:focus {
-  /* All these styles are now handled by the main .cta-button svg:focus class */
-}
-
-.home-page .hero-cta .cta-button svg:disabled {
-  /* All these styles are now handled by the main .cta-button svg:disabled class */
-}
-
-.home-page .hero-cta .cta-button:hover svg {
-  /* All these styles are now handled by the main .cta-button:hover svg class */
-}
-
-.home-page .hero-cta .cta-button:active svg {
-  /* All these styles are now handled by the main .cta-button:active svg class */
-}
-
-.home-page .hero-cta .cta-button:focus svg {
-  /* All these styles are now handled by the main .cta-button:focus svg class */
-}
-
-.home-page .hero-cta .cta-button:disabled svg {
-  /* All these styles are now handled by the main .cta-button:disabled svg class */
-}
-
-.home-page .hero-cta .cta-button:hover svg path {
-  /* All these styles are now handled by the main .cta-button:hover svg path class */
-}
-
-.home-page .hero-cta .cta-button:active svg path {
-  /* All these styles are now handled by the main .cta-button:active svg path class */
-}
-
-.home-page .hero-cta .cta-button:focus svg path {
-  /* All these styles are now handled by the main .cta-button:focus svg path class */
-}
-
-.home-page .hero-cta .cta-button:disabled svg path {
-  /* All these styles are now handled by the main .cta-button:disabled svg path class */
-}
-
-.home-page .hero-cta .cta-button:hover svg circle {
-  /* All these styles are now handled by the main .cta-button:hover svg circle class */
-}
-
-.home-page .hero-cta .cta-button:active svg circle {
-  /* All these styles are now handled by the main .cta-button:active svg circle class */
-}
-
-.home-page .hero-cta .cta-button:focus svg circle {
-  /* All these styles are now handled by the main .cta-button:focus svg circle class */
-}
-
-.home-page .hero-cta .cta-button:disabled svg circle {
-  /* All these styles are now handled by the main .cta-button:disabled svg circle class */
-}
-
-.home-page .hero-cta .cta-button:hover svg rect {
-
-}
 #root {
   max-width: 100%;
   margin: 0;
@@ -21720,10 +21572,12 @@ blockquote {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  color: var(--color-primary);
 }
 
 .footer-logo-section {
   padding: 1rem 0;
+  color: var(--color-primary);
 }
 
 .footer-links {
