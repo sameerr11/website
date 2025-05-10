@@ -130,72 +130,44 @@ function Home() {
       <section className="services-highlight" style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'center',
-        flexDirection: 'column',
-        background: '#53565c',
-        padding: '4rem 0.75rem 3rem',
+        justifyContent: 'flex-end', 
+        background: `url(${servicesImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '6rem 0 4rem 0', 
         position: 'relative',
-        width: 'calc(100% - 1.5rem)', // Reduced side margin
-        maxWidth: '100%', // Allow full width within container
-        margin: '3rem auto 0',
+        width: '100%',
+        maxWidth: '1400px',
+        margin: '3rem auto 0', 
         borderRadius: '8px',
         boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-        overflow: 'hidden',
-        boxSizing: 'border-box' // Ensure padding is included in width calculation
+        minHeight: '500px'
       }}>
         <div className="services-content" data-aos="fade-up" style={{ 
-          width: '100%',
-          maxWidth: '90%', // Reduced from 1000px
+          flex: '0 1 50%',
+          maxWidth: '600px',
           position: 'relative',
           zIndex: 2,
-          textAlign: 'center',
-          margin: '0 auto',
-          padding: '0'
+          textAlign: 'left',
+          padding: '0 4rem 0 0',
+          marginRight: '3rem'
         }}>
           <h2 style={{ 
-            color: '#ECE7D0',
-            fontSize: 'clamp(1.7rem, 4.5vw, 2.4rem)', // Slightly smaller
-            marginBottom: '1.5rem',
-            wordWrap: 'break-word' // Ensure text wraps properly
-          }}>End-to-End Construction Solutions</h2>
-        </div>
-        
-        <div style={{
-          margin: '1rem auto',
-          width: '90%', // Reduced width
-          maxWidth: '320px', // Smaller max width
-          display: 'flex',
-          justifyContent: 'center',
-          zIndex: 2,
-          padding: '0'
-        }}>
-          <motion.img 
-            src={servicesImage} 
-            alt="Construction Services"
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.4,
-              ease: "easeOut"
-            }}
-            style={{
-              width: '100%',
-              height: "auto",
-              borderRadius: "8px",
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
-            }}
-          />
-        </div>
-        
-        <div className="services-list-container" style={{
-          width: '90%', // Reduced from 100%
-          maxWidth: '600px', // Reduced from 800px
-          margin: '0.5rem auto 0',
-          zIndex: 2,
-          padding: '0'
-        }}>
+            color: '#53565C',
+            fontSize: '2.5rem',
+            position: 'relative',
+            marginBottom: '2rem'
+          }}>
+            End-to-End Construction Solutions
+            <span style={{
+              display: 'block',
+              width: '80px',
+              height: '3px',
+              background: '#A67C52',
+              marginTop: '1rem'
+            }}></span>
+          </h2>
           <motion.ul 
             className="services-list"
             initial={{ opacity: 0 }}
@@ -203,13 +175,9 @@ function Home() {
             transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
             viewport={{ once: true }}
             style={{ 
-              color: '#e8e8e8',
-              listStylePosition: 'inside',
-              paddingLeft: 0,
-              textAlign: 'left',
-              margin: '0 auto',
-              maxWidth: '100%',
-              fontSize: 'clamp(0.85rem, 3.8vw, 1rem)' // Slightly smaller
+              color: '#53565C',
+              listStyleType: 'none',
+              paddingLeft: 0
             }}
           >
             {[
@@ -220,40 +188,34 @@ function Home() {
             ].map((service, index) => (
               <motion.li 
                 key={index}
-                initial={{ x: -20, opacity: 0 }}
+                initial={{ x: 20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 style={{ 
-                  marginBottom: '10px', // Slightly reduced
+                  marginBottom: '20px',
                   display: 'flex',
-                  alignItems: 'flex-start', // Align to top for better text wrapping
-                  paddingRight: '5px'
+                  alignItems: 'center',
+                  color: '#53565C',
+                  fontWeight: '500'
                 }}
               >
                 <span style={{ 
-                  color: '#ECE7D0', 
-                  marginRight: '6px',
-                  flexShrink: 0,
-                  paddingTop: '2px' 
+                  color: '#A67C52', 
+                  marginRight: '12px',
+                  fontSize: '1.2rem'
                 }}>✓</span>
-                <span style={{ 
-                  display: 'block', 
-                  wordBreak: 'break-word' // Handle long words on small screens
-                }}>{service}</span>
+                {service}
               </motion.li>
             ))}
           </motion.ul>
-          <motion.div 
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.95 }} 
-            style={{ 
-              marginTop: '20px',
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <Link to="/services" className="secondary-button">Our Services</Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ marginTop: '32px' }}>
+            <Link to="/services" className="secondary-button" style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              color: '#53565C',
+              borderColor: '#53565C'
+            }}>OUR SERVICES</Link>
           </motion.div>
         </div>
       </section>
