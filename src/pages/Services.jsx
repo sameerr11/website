@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InteriorPlanningShowcase from '../components/InteriorPlanningShowcase';
 import '../styles/InteriorPlanningSection.css';
 
 function Services() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const mainServices = [
     {
       id: 1,
@@ -119,16 +130,63 @@ function Services() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: '400px',
+        minHeight: isMobile ? '500px' : '600px',
         marginTop: 0,
         marginBottom: 0,
         borderTop: 'none',
-        borderBottom: 'none'
+        borderBottom: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: isMobile ? 'center' : 'center',
+        padding: isMobile ? '2rem 0' : '0'
       }}>
-        <div className="container">
-          <div className="intro-content" style={{ paddingBottom: '80px', paddingLeft: '100px', maxWidth: '85%' }}>
-            <h2>Comprehensive Solutions for Every Project</h2>
-            <p className="lead-text">
+        <div style={{ 
+          backgroundColor: isMobile ? 'rgba(255, 255, 255, 0.9)' : 'transparent',
+          borderRadius: isMobile ? '0' : 'none',
+          width: isMobile ? '100%' : 'auto',
+          padding: isMobile ? '2rem 1.5rem' : '0'
+        }}>
+          <div className="intro-content" style={{ 
+            paddingBottom: isMobile ? '20px' : '80px', 
+            paddingLeft: isMobile ? '0' : '100px', 
+            maxWidth: isMobile ? '100%' : '85%',
+            textAlign: isMobile ? 'center' : 'center',
+            margin: '0 auto'
+          }}>
+            <h2 style={{
+              fontSize: isMobile ? '1.8rem' : '3rem',
+              marginBottom: isMobile ? '1rem' : '1.5rem',
+              color: '#53565C',
+              textShadow: isMobile ? 'none' : '0 2px 4px rgba(0, 0, 0, 0.1)',
+              fontWeight: isMobile ? '600' : '500'
+            }}>
+              Comprehensive Solutions for Every Project
+              {isMobile ? (
+                <span style={{
+                  display: 'block',
+                  width: '60px',
+                  height: '3px',
+                  background: '#A67C52',
+                  margin: '0.8rem auto 0',
+                }}></span>
+              ) : (
+                <span style={{
+                  display: 'block',
+                  width: '100px',
+                  height: '3px',
+                  background: '#A67C52',
+                  margin: '1.5rem auto 0',
+                }}></span>
+              )}
+            </h2>
+            <p className="lead-text" style={{
+              fontSize: isMobile ? '1rem' : '1.2rem',
+              lineHeight: isMobile ? '1.5' : '1.8',
+              color: '#53565C',
+              maxWidth: isMobile ? '100%' : '800px',
+              textShadow: isMobile ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.1)',
+              margin: '0 auto'
+            }}>
               At Stella Di Pietra, we provide a comprehensive range of services designed to meet all your construction material needs. From sourcing premium materials globally to ensuring timely delivery to your location, we handle every aspect of the supply chain with expertise and precision.
             </p>
           </div>

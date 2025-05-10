@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../App.css';
 import servicesImage from '../assets/services.png';
 
 function Home() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -130,42 +141,51 @@ function Home() {
       <section className="services-highlight" style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'flex-end', 
+        justifyContent: isMobile ? 'center' : 'flex-end', 
         background: `url(${servicesImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        padding: '6rem 0 4rem 0', 
+        padding: isMobile ? '1rem 0' : '6rem 0 4rem 0', 
         position: 'relative',
         width: '100%',
-        maxWidth: '1400px',
+        maxWidth: isMobile ? '100%' : '1400px',
         margin: '3rem auto 0', 
-        borderRadius: '8px',
+        borderRadius: isMobile ? '0' : '8px',
         boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-        minHeight: '500px'
+        minHeight: isMobile ? '450px' : '500px',
+        textAlign: isMobile ? 'center' : 'left',
+        overflow: 'hidden'
       }}>
         <div className="services-content" data-aos="fade-up" style={{ 
-          flex: '0 1 50%',
-          maxWidth: '600px',
+          flex: isMobile ? '1 1 auto' : '0 1 50%',
+          maxWidth: isMobile ? '95%' : '600px',
+          width: isMobile ? '95%' : 'auto',
           position: 'relative',
           zIndex: 2,
-          textAlign: 'left',
-          padding: '0 4rem 0 0',
-          marginRight: '3rem'
+          textAlign: isMobile ? 'center' : 'left',
+          marginRight: isMobile ? '0' : '3rem',
+          marginLeft: isMobile ? '0' : 'auto',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          borderRadius: '8px',
+          padding: isMobile ? '1.5rem' : '2rem',
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
         }}>
           <h2 style={{ 
             color: '#53565C',
-            fontSize: '2.5rem',
+            fontSize: isMobile ? '1.8rem' : '2.5rem',
             position: 'relative',
-            marginBottom: '2rem'
+            marginBottom: isMobile ? '1.25rem' : '2rem',
+            lineHeight: isMobile ? '1.2' : '1.3',
+            fontWeight: '600'
           }}>
             End-to-End Construction Solutions
             <span style={{
               display: 'block',
-              width: '80px',
+              width: isMobile ? '60px' : '80px',
               height: '3px',
               background: '#A67C52',
-              marginTop: '1rem'
+              margin: isMobile ? '0.8rem auto 0' : '1rem 0 0',
             }}></span>
           </h2>
           <motion.ul 
@@ -177,7 +197,9 @@ function Home() {
             style={{ 
               color: '#53565C',
               listStyleType: 'none',
-              paddingLeft: 0
+              paddingLeft: 0,
+              margin: isMobile ? '0 auto' : '0',
+              maxWidth: isMobile ? '100%' : 'none'
             }}
           >
             {[
@@ -193,28 +215,46 @@ function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 style={{ 
-                  marginBottom: '20px',
+                  marginBottom: isMobile ? '12px' : '20px',
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems: 'flex-start',
+                  justifyContent: isMobile ? 'flex-start' : 'flex-start',
                   color: '#53565C',
-                  fontWeight: '500'
+                  fontWeight: '500',
+                  fontSize: isMobile ? '0.9rem' : 'inherit',
+                  textAlign: 'left',
+                  lineHeight: '1.4'
                 }}
               >
                 <span style={{ 
                   color: '#A67C52', 
-                  marginRight: '12px',
-                  fontSize: '1.2rem'
+                  marginRight: '10px',
+                  fontSize: isMobile ? '1rem' : '1.2rem',
+                  flexShrink: 0,
+                  paddingTop: '2px'
                 }}>✓</span>
                 {service}
               </motion.li>
             ))}
           </motion.ul>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ marginTop: '32px' }}>
+          <motion.div 
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ scale: 0.95 }} 
+            style={{ 
+              marginTop: isMobile ? '20px' : '32px',
+              textAlign: isMobile ? 'center' : 'left',
+              display: 'flex',
+              justifyContent: isMobile ? 'center' : 'flex-start'
+            }}
+          >
             <Link to="/services" className="secondary-button" style={{
               display: 'inline-block',
-              padding: '12px 24px',
+              padding: isMobile ? '8px 16px' : '12px 24px',
               color: '#53565C',
-              borderColor: '#53565C'
+              borderColor: '#53565C',
+              fontSize: isMobile ? '0.85rem' : 'inherit',
+              fontWeight: '600',
+              letterSpacing: '0.5px'
             }}>OUR SERVICES</Link>
           </motion.div>
         </div>
