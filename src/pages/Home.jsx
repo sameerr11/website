@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../App.css';
 import servicesImage from '../assets/services.png';
+import '../styles/HomeServices.css';
 
 function Home() {
   const containerVariants = {
@@ -127,46 +128,11 @@ function Home() {
         </div>
       </section>
       
-      <section className="services-highlight" style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'flex-end', 
-        background: `url(${servicesImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '6rem 0 4rem 0', 
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1400px',
-        margin: '3rem auto 0', 
-        borderRadius: '8px',
-        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
-        minHeight: '500px'
-      }}>
-        <div className="services-content" data-aos="fade-up" style={{ 
-          flex: '0 1 50%',
-          maxWidth: '600px',
-          position: 'relative',
-          zIndex: 2,
-          textAlign: 'left',
-          padding: '0 4rem 0 0',
-          marginRight: '3rem'
-        }}>
-          <h2 style={{ 
-            color: '#53565C',
-            fontSize: '2.5rem',
-            position: 'relative',
-            marginBottom: '2rem'
-          }}>
+      <section className="services-highlight">
+        <div className="services-content" data-aos="fade-up">
+          <h2>
             End-to-End Construction Solutions
-            <span style={{
-              display: 'block',
-              width: '80px',
-              height: '3px',
-              background: '#A67C52',
-              marginTop: '1rem'
-            }}></span>
+            <span className="title-underline"></span>
           </h2>
           <motion.ul 
             className="services-list"
@@ -174,11 +140,6 @@ function Home() {
             whileInView={{ opacity: 1 }}
             transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
             viewport={{ once: true }}
-            style={{ 
-              color: '#53565C',
-              listStyleType: 'none',
-              paddingLeft: 0
-            }}
           >
             {[
               'Expert material sourcing and consultation',
@@ -192,30 +153,19 @@ function Home() {
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                style={{ 
-                  marginBottom: '20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  color: '#53565C',
-                  fontWeight: '500'
-                }}
+                className="service-item"
               >
-                <span style={{ 
-                  color: '#A67C52', 
-                  marginRight: '12px',
-                  fontSize: '1.2rem'
-                }}>✓</span>
+                <span className="service-checkmark">✓</span>
                 {service}
               </motion.li>
             ))}
           </motion.ul>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ marginTop: '32px' }}>
-            <Link to="/services" className="secondary-button" style={{
-              display: 'inline-block',
-              padding: '12px 24px',
-              color: '#53565C',
-              borderColor: '#53565C'
-            }}>OUR SERVICES</Link>
+          <motion.div 
+            className="services-button-container"
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link to="/services" className="secondary-button services-button">OUR SERVICES</Link>
           </motion.div>
         </div>
       </section>
