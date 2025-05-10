@@ -93,9 +93,18 @@ function Services() {
     }
   ];
 
+  const Divider = () => (
+    <div style={{ 
+      width: '100%', 
+      height: '3px', 
+      background: 'linear-gradient(90deg, rgba(166,124,82,0) 0%, rgba(166,124,82,0.7) 50%, rgba(166,124,82,0) 100%)',
+      margin: '0 auto'
+    }}></div>
+  );
+
   return (
-    <div className="services-page">
-      <section className="hero">
+    <div className="services-page" style={{ backgroundColor: '#fff' }}>
+      <section className="hero" style={{ marginBottom: 0 }}>
         <div className="hero-detailed-layer"></div>
         <div className="hero-content">
           <h1>Our Services</h1>
@@ -103,24 +112,30 @@ function Services() {
         </div>
       </section>
 
-      <section className="services-intro">
+      <section className="services-intro" style={{ 
+        backgroundImage: 'url("/bg.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '400px',
+        marginTop: 0,
+        marginBottom: 0,
+        borderTop: 'none',
+        borderBottom: 'none'
+      }}>
         <div className="container">
-          <div className="intro-content">
+          <div className="intro-content" style={{ paddingBottom: '80px', paddingLeft: '100px', maxWidth: '85%' }}>
             <h2>Comprehensive Solutions for Every Project</h2>
             <p className="lead-text">
               At Stella Di Pietra, we provide a comprehensive range of services designed to meet all your construction material needs. From sourcing premium materials globally to ensuring timely delivery to your location, we handle every aspect of the supply chain with expertise and precision.
             </p>
-
-            <div className="services-highlight">
-              <div className="highlight-content">
-                <p>Our end-to-end approach eliminates the complexity of managing multiple suppliers and logistics channels, allowing you to focus on what matters most – your construction project.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="main-services">
+      <Divider />
+
+      <section className="main-services" style={{ marginTop: 0, marginBottom: 0, backgroundColor: '#fff', paddingTop: '40px' }}>
         <div className="container">
           <h2>Our Core Services</h2>
           <div className="section-description">
@@ -145,7 +160,9 @@ function Services() {
         </div>
       </section>
 
-      <section className="interior-planning-detail">
+      <Divider />
+
+      <section className="interior-planning-detail" style={{ marginTop: 0, marginBottom: 0, backgroundColor: '#f8f8f8', paddingTop: '40px' }}>
         <div className="container">
           <h2>Interior Planning Excellence</h2>
           <div className="interior-planning-content">
@@ -167,7 +184,9 @@ function Services() {
         </div>
       </section>
 
-      <section className="process-section">
+      <Divider />
+
+      <section className="process-section" style={{ marginTop: 0, marginBottom: 0, backgroundColor: '#fff', paddingTop: '40px' }}>
         <div className="container">
           <h2>Our Streamlined Process</h2>
           <div className="process-steps">
@@ -203,7 +222,9 @@ function Services() {
         </div>
       </section>
 
-      <section className="materials-showcase">
+      <Divider />
+
+      <section className="materials-showcase" style={{ marginTop: 0, marginBottom: 0, backgroundColor: '#f8f8f8', paddingTop: '40px' }}>
         <div className="container">
           <h2>Premium Materials We Provide</h2>
           <div className="materials-grid">
@@ -229,7 +250,9 @@ function Services() {
         </div>
       </section>
 
-      <section className="services-cta">
+      <Divider />
+
+      <section className="services-cta" style={{ marginTop: 0, backgroundColor: '#ECE7D0', paddingTop: '40px' }}>
         <div className="container">
           <h2>Ready to Transform Your Construction Projects?</h2>
           <p>Partner with Stella Di Pietra for premium materials and seamless supply chain solutions</p>
