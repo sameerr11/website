@@ -89,4 +89,42 @@ button:focus-visible {
     background-color: var(--color-primary);
     color: var(--color-secondary);
   }
+}
+
+/* Add high-contrast text rules */
+body, .app, #root {
+  color: var(--color-text);
+  background: var(--color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  body, .app, #root {
+    color: var(--color-light);
+    background: var(--color-secondary);
+  }
+  h1, h2, h3, h4, h5, h6, a, p, li, label, .nav-link, .footer, .footer-links a {
+    color: var(--color-light) !important;
+  }
+}
+
+/* Responsive typography */
+html {
+  font-size: 18px;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  p, li, label {
+    font-size: 1rem;
+  }
 } 
