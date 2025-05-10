@@ -7,7 +7,7 @@ function Contact() {
     subject: '',
     message: ''
   });
-  
+
   // Add state for tracking which social icon is being hovered
   const [hoveredSocial, setHoveredSocial] = useState(null);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ArchitecturalShowcase from '../components/ArchitecturalShowcase';
 
 function About() {
   return (
@@ -18,7 +19,7 @@ function About() {
             <h2>Who We Are</h2>
             <p className="lead-text">Stella Di Pietra is a leading provider of end-to-end construction solutions, specialising in sourcing, supplying, and delivering premium materials for residential and commercial projects.</p>
             <div className="about-image">
-              <img src="https://placehold.co/1200x700/ECE7D0/53565C?text=Stella+Di+Pietra" alt="Stella Di Pietra headquarters" />
+              <ArchitecturalShowcase />
             </div>
             <div className="about-text-block">
               <p>We offer a comprehensive one-package solution for builders, developers, designers, and homeowners. From material selection to quality checks and timely delivery, we ensure every product meets the highest standards.</p>
