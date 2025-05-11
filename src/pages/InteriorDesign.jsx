@@ -20,7 +20,6 @@ function InteriorDesign() {
       id: 1,
       title: 'Interior Design Concepts',
       description: 'Tailored interior design concepts that blend your style preferences with functional excellence. Our collaborative approach focuses on understanding your vision and delivering designs that exceed expectations.',
-      icon: '🏠',
       features: [
         'Personalized design consultations',
         'Space planning and optimization',
@@ -32,7 +31,6 @@ function InteriorDesign() {
       id: 2,
       title: 'Customized Furniture & Décor',
       description: 'Enhance your interior ambiance with custom-designed furniture and décor. We collaborate with skilled craftsmen to create unique pieces that harmonize with your design theme.',
-      icon: '🪑',
       features: [
         'Bespoke furniture design',
         'Custom upholstery and finishes',
@@ -44,24 +42,11 @@ function InteriorDesign() {
       id: 3,
       title: '3D Modeling & Rendering',
       description: 'Utilizing advanced 3D modeling software for precise visualization of design elements. Our high-quality rendering techniques bring your interior spaces to life with photorealistic accuracy.',
-      icon: '🖼️',
       features: [
         'Detailed 3D spatial models',
         'Photorealistic renderings',
         'Virtual walkthroughs',
         'Lighting simulation and analysis'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Graphic Design Services',
-      description: 'Creative graphic design solutions for branding, marketing materials, and visual storytelling. We offer expertise in designing logos, brochures, posters, and digital assets to enhance your brand identity.',
-      icon: '🎨',
-      features: [
-        'Brand identity development',
-        'Marketing collateral design',
-        'Digital asset creation',
-        'Visual content strategy'
       ]
     }
   ];
@@ -209,7 +194,8 @@ function InteriorDesign() {
             fontSize: '2.2rem',
             marginBottom: '2.5rem',
             textAlign: 'center',
-            position: 'relative'
+            position: 'relative',
+            fontWeight: '500'
           }}>
             Our Design Services
             <span style={{
@@ -228,8 +214,8 @@ function InteriorDesign() {
             animate="visible"
             style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-              gap: '2rem'
+              gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+              gap: '1.5rem'
             }}
           >
             {interiorServices.map((service) => (
@@ -244,33 +230,38 @@ function InteriorDesign() {
                 }}
                 style={{
                   backgroundColor: 'white',
-                  borderRadius: '8px',
-                  padding: '2.5rem',
+                  borderRadius: '0',
+                  padding: '1.5rem',
                   boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05)',
-                  border: '1px solid rgba(166, 124, 82, 0.1)',
+                  border: '1px solid rgba(166, 124, 82, 0.05)',
                   borderBottom: '3px solid #A67C52',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}
               >
                 <div style={{ 
-                  fontSize: '3rem', 
-                  marginBottom: '1.5rem',
-                  color: '#A67C52'
-                }}>
-                  {service.icon}
-                </div>
+                  height: '3px',
+                  width: '40px',
+                  background: '#A67C52',
+                  marginBottom: '0.8rem'
+                }}></div>
                 <h3 style={{ 
                   color: '#53565C', 
-                  fontSize: '1.5rem', 
-                  marginBottom: '1rem',
-                  fontWeight: '600'
+                  fontSize: '1.2rem', 
+                  marginBottom: '0.6rem',
+                  fontWeight: '500',
+                  letterSpacing: '0.5px'
                 }}>
                   {service.title}
                 </h3>
                 <p style={{ 
                   color: '#555', 
-                  marginBottom: '1.5rem',
-                  lineHeight: '1.6'
+                  marginBottom: '0.8rem',
+                  lineHeight: '1.4',
+                  fontSize: '0.9rem',
+                  flex: '1'
                 }}>
                   {service.description}
                 </p>
@@ -281,19 +272,20 @@ function InteriorDesign() {
                 }}>
                   {service.features.map((feature, index) => (
                     <li key={index} style={{ 
-                      color: '#555',
-                      padding: '0.5rem 0',
-                      borderBottom: index !== service.features.length - 1 ? '1px solid rgba(83, 86, 92, 0.1)' : 'none',
+                      color: '#666',
+                      padding: '0.2rem 0',
+                      borderBottom: index !== service.features.length - 1 ? '1px solid rgba(83, 86, 92, 0.08)' : 'none',
                       position: 'relative',
-                      paddingLeft: '1.5rem'
+                      paddingLeft: '1.2rem',
+                      fontSize: '0.85rem'
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
-                        top: '0.7rem',
+                        top: '0.4rem',
                         color: '#A67C52',
-                        fontWeight: 'bold'
-                      }}>•</span>
+                        fontWeight: 'normal'
+                      }}>—</span>
                       {feature}
                     </li>
                   ))}
@@ -316,7 +308,8 @@ function InteriorDesign() {
             <h2 style={{
               color: '#53565C',
               fontSize: '2.2rem',
-              marginBottom: '1.5rem'
+              marginBottom: '1.5rem',
+              fontWeight: '500'
             }}>
               Visualize Your Space
               <span style={{
@@ -328,11 +321,11 @@ function InteriorDesign() {
               }}></span>
             </h2>
             <p style={{
-              maxWidth: '800px',
+              maxWidth: '700px',
               margin: '0 auto',
-              color: '#555',
-              fontSize: '1.1rem',
-              lineHeight: '1.6'
+              color: '#666',
+              fontSize: '1.05rem',
+              lineHeight: '1.7'
             }}>
               Experience your space before it's built with our advanced 3D visualization services. We create photorealistic renders that help you make confident design decisions.
             </p>
@@ -341,9 +334,9 @@ function InteriorDesign() {
           <div style={{ 
             width: '100%',
             height: isMobile ? '300px' : '500px',
-            borderRadius: '12px',
+            borderRadius: '0',
             overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+            boxShadow: '0 15px 40px rgba(0, 0, 0, 0.15)'
           }}>
             <InteriorPlanningShowcase />
           </div>
@@ -353,7 +346,7 @@ function InteriorDesign() {
       <Divider />
 
       <section className="why-choose-us" style={{ 
-        padding: '4rem 2rem',
+        padding: '5rem 2rem',
         backgroundColor: '#f8f5eb',
         position: 'relative'
       }}>
@@ -361,8 +354,9 @@ function InteriorDesign() {
           <h2 style={{
             color: '#53565C',
             fontSize: '2.2rem',
-            marginBottom: '2.5rem',
-            textAlign: 'center'
+            marginBottom: '3.5rem',
+            textAlign: 'center',
+            fontWeight: '500'
           }}>
             Why Choose Our Design Services
             <span style={{
@@ -382,7 +376,7 @@ function InteriorDesign() {
             style={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-              gap: '2rem'
+              gap: '3rem 4rem'
             }}
           >
             {whyChooseUs.map((item, index) => (
@@ -396,18 +390,22 @@ function InteriorDesign() {
                 }}
                 style={{
                   backgroundColor: 'white',
-                  borderRadius: '8px',
-                  padding: '2rem',
+                  borderRadius: '0',
+                  padding: '2.5rem',
                   boxShadow: '0 5px 15px rgba(0, 0, 0, 0.05)',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  border: '1px solid rgba(166, 124, 82, 0.05)',
+                  borderLeft: '3px solid #A67C52'
                 }}
               >
                 <h3 style={{ 
-                  color: '#A67C52', 
+                  color: '#53565C', 
                   fontSize: '1.3rem', 
-                  marginBottom: '1rem',
+                  marginBottom: '1.2rem',
                   position: 'relative',
-                  paddingBottom: '0.8rem'
+                  paddingBottom: '0.8rem',
+                  fontWeight: '500',
+                  letterSpacing: '0.5px'
                 }}>
                   {item.title}
                   <span style={{
@@ -420,8 +418,9 @@ function InteriorDesign() {
                   }}></span>
                 </h3>
                 <p style={{ 
-                  color: '#555',
-                  lineHeight: '1.6'
+                  color: '#666',
+                  lineHeight: '1.7',
+                  fontSize: '0.95rem'
                 }}>
                   {item.description}
                 </p>
@@ -447,7 +446,7 @@ function InteriorDesign() {
           backgroundImage: 'url("/bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.05,
+          opacity: 0.03,
           zIndex: 0
         }}></div>
         
@@ -460,17 +459,20 @@ function InteriorDesign() {
         }}>
           <h2 style={{ 
             color: '#ECE7D0',
-            fontSize: isMobile ? '1.8rem' : '2.5rem',
+            fontSize: isMobile ? '1.8rem' : '2.2rem',
             marginBottom: '1.5rem',
-            fontWeight: '500'
+            fontWeight: '400',
+            letterSpacing: '0.5px'
           }}>
             Ready to Transform Your Space?
           </h2>
           <p style={{ 
             color: '#ECE7D0',
-            fontSize: '1.1rem',
-            lineHeight: '1.6',
-            marginBottom: '2.5rem'
+            fontSize: '1.05rem',
+            lineHeight: '1.7',
+            marginBottom: '2.5rem',
+            maxWidth: '650px',
+            margin: '0 auto 2.5rem'
           }}>
             Contact our design team today for a consultation and discover how we can bring your vision to life with innovative design solutions and premium materials.
           </p>
@@ -482,27 +484,29 @@ function InteriorDesign() {
           }}>
             <Link to="/contact" style={{
               display: 'inline-block',
-              padding: '1rem 2rem',
+              padding: '1rem 2.5rem',
               backgroundColor: '#A67C52',
               color: 'white',
               textDecoration: 'none',
-              borderRadius: '4px',
-              fontWeight: '500',
+              borderRadius: '0',
+              fontWeight: '400',
               boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              letterSpacing: '0.5px'
             }}>
               Contact Our Team
             </Link>
             <Link to="/portfolio" style={{
               display: 'inline-block',
-              padding: '1rem 2rem',
+              padding: '1rem 2.5rem',
               backgroundColor: 'transparent',
               color: 'white',
               textDecoration: 'none',
-              borderRadius: '4px',
-              fontWeight: '500',
-              border: '2px solid #ECE7D0',
-              transition: 'all 0.3s ease'
+              borderRadius: '0',
+              fontWeight: '400',
+              border: '1px solid rgba(236, 231, 208, 0.3)',
+              transition: 'all 0.3s ease',
+              letterSpacing: '0.5px'
             }}>
               View Our Portfolio
             </Link>
