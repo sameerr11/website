@@ -206,7 +206,7 @@ function Footer() {
           
           <motion.div className="footer-links-column" variants={itemVariants} style={{ flex: "1 1 150px" }}>
             <h3 style={{ color: "#ECE7D0", marginBottom: "1.5rem", position: "relative", paddingBottom: "0.8rem" }}>
-              Materials
+              Services
               <span style={{ 
                 content: "''", 
                 position: "absolute", 

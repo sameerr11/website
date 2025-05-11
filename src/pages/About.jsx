@@ -47,37 +47,70 @@ function About() {
         </div>
       </section>
 
-      <section className="services-overview">
+      <section className="services-overview" style={{
+        background: `linear-gradient(rgba(248, 245, 235, 0.9), rgba(248, 245, 235, 0.9)), 
+                     url('/bg.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(166, 124, 82, 0.2)',
+        borderBottom: '1px solid rgba(166, 124, 82, 0.2)'
+      }}>
         <div className="about-container">
           <h2>Our Comprehensive Solutions</h2>
           <div className="services-grid">
-            <div className="service-item">
+            <div className="service-item" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.85)',
+              boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
+              transition: 'all 0.4s ease',
+              border: '1px solid rgba(166, 124, 82, 0.1)',
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+            }}>
               <div className="service-icon">
                 <span>🏗️</span>
               </div>
               <h3>Material Sourcing</h3>
-              <p>We source premium materials from trusted suppliers worldwide, ensuring quality and sustainability.</p>
+              <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>We source premium materials from trusted suppliers worldwide, ensuring quality and sustainability.</p>
             </div>
-            <div className="service-item">
+            <div className="service-item" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.85)',
+              boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
+              transition: 'all 0.4s ease',
+              border: '1px solid rgba(166, 124, 82, 0.1)',
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+            }}>
               <div className="service-icon">
                 <span>🔍</span>
               </div>
               <h3>Quality Control</h3>
-              <p>Rigorous testing and inspection processes to guarantee all products meet the highest industry standards.</p>
+              <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Rigorous testing and inspection processes to guarantee all products meet the highest industry standards.</p>
             </div>
-            <div className="service-item">
+            <div className="service-item" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.85)',
+              boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
+              transition: 'all 0.4s ease',
+              border: '1px solid rgba(166, 124, 82, 0.1)',
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+            }}>
               <div className="service-icon">
                 <span>🚚</span>
               </div>
               <h3>Logistics & Delivery</h3>
-              <p>Efficient supply chain management with reliable, timely delivery to your project location.</p>
+              <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Efficient supply chain management with reliable, timely delivery to your project location.</p>
             </div>
-            <div className="service-item">
+            <div className="service-item" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.85)',
+              boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
+              transition: 'all 0.4s ease',
+              border: '1px solid rgba(166, 124, 82, 0.1)',
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+            }}>
               <div className="service-icon">
                 <span>📋</span>
               </div>
               <h3>Project Consultation</h3>
-              <p>Expert advice on material selection tailored to your specific project requirements and budget.</p>
+              <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Expert advice on material selection tailored to your specific project requirements and budget.</p>
             </div>
           </div>
         </div>

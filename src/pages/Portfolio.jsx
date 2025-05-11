@@ -215,7 +215,7 @@ function Portfolio() {
               color: '#53565C'
             }}
           >
-            Our portfolio features a variety of successful projects, including luxury homes, commercial developments, and large-scale renovations. Each case study highlights our commitment to excellence and our ability to source and deliver high-quality materials for every type of project.
+              Our portfolio features a variety of successful projects, including luxury homes, commercial developments, and large-scale renovations. Each case study highlights our commitment to excellence and our ability to source and deliver high-quality materials for every type of project.
           </motion.p>
           
           <motion.div 
