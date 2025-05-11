@@ -14,6 +14,7 @@ import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Catalogues from './pages/Catalogues'
 import Contact from './pages/Contact'
+import InteriorDesign from './pages/InteriorDesign'
 import { initCursorTrail } from './utils/cursorTrail'
 import { initScrollReveal } from './utils/scrollReveal'
 import { initParallaxEffect } from './utils/parallaxEffect'
@@ -103,6 +104,11 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={
           <PageTransition>
             <Contact />
+          </PageTransition>
+        } />
+        <Route path="/interior-design" element={
+          <PageTransition>
+            <InteriorDesign />
           </PageTransition>
         } />
       </Routes>

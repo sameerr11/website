@@ -140,6 +140,21 @@ function Navbar() {
             className="nav-item"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.5 }}
+          >
+            <motion.div variants={linkVariants} whileHover="hover">
+              <Link 
+                to="/interior-design" 
+                className={`nav-link ${location.pathname === '/interior-design' ? 'active' : ''}`}
+              >
+                Interior Design
+              </Link>
+            </motion.div>
+          </motion.li>
+          <motion.li 
+            className="nav-item"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
             <motion.div variants={linkVariants} whileHover="hover">
