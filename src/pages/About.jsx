@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ArchitecturalShowcase from '../components/ArchitecturalShowcase';
 
 function About() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="about-page">
       <section className="hero">
@@ -55,61 +66,99 @@ function About() {
         position: 'relative',
         overflow: 'hidden',
         borderTop: '1px solid rgba(166, 124, 82, 0.2)',
-        borderBottom: '1px solid rgba(166, 124, 82, 0.2)'
+        borderBottom: '1px solid rgba(166, 124, 82, 0.2)',
+        padding: isMobile ? '3rem 1rem' : '4rem 2rem'
       }}>
-        <div className="about-container">
-          <h2>Our Comprehensive Solutions</h2>
-          <div className="services-grid">
-            <div className="service-item" style={{
+        <div style={{
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <h2 style={{
+            textAlign: 'center',
+            marginBottom: '2rem',
+            fontSize: isMobile ? '1.8rem' : '2.2rem',
+            position: 'relative',
+            color: '#53565C',
+            fontWeight: '500'
+          }}>
+            Our Comprehensive Solutions
+            <span style={{
+              display: 'block',
+              width: '80px',
+              height: '3px',
+              background: '#A67C52',
+              margin: '0.8rem auto 0'
+            }}></span>
+          </h2>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+            gap: isMobile ? '1.5rem' : '2rem',
+            width: '100%'
+          }}>
+            <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
               boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
               transition: 'all 0.4s ease',
               border: '1px solid rgba(166, 124, 82, 0.1)',
-              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              borderRadius: '4px'
             }}>
-              <div className="service-icon">
-                <span>🏗️</span>
-              </div>
-              <h3>Material Sourcing</h3>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: '#53565C' }}>Material Sourcing</h3>
               <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>We source premium materials from trusted suppliers worldwide, ensuring quality and sustainability.</p>
             </div>
-            <div className="service-item" style={{
+            <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
               boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
               transition: 'all 0.4s ease',
               border: '1px solid rgba(166, 124, 82, 0.1)',
-              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              borderRadius: '4px'
             }}>
-              <div className="service-icon">
-                <span>🔍</span>
-              </div>
-              <h3>Quality Control</h3>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: '#53565C' }}>Quality Control</h3>
               <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Rigorous testing and inspection processes to guarantee all products meet the highest industry standards.</p>
             </div>
-            <div className="service-item" style={{
+            <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
               boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
               transition: 'all 0.4s ease',
               border: '1px solid rgba(166, 124, 82, 0.1)',
-              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              borderRadius: '4px'
             }}>
-              <div className="service-icon">
-                <span>🚚</span>
-              </div>
-              <h3>Logistics & Delivery</h3>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: '#53565C' }}>Logistics & Delivery</h3>
               <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Efficient supply chain management with reliable, timely delivery to your project location.</p>
             </div>
-            <div className="service-item" style={{
+            <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
               boxShadow: '0 10px 30px rgba(166, 124, 82, 0.1)',
               transition: 'all 0.4s ease',
               border: '1px solid rgba(166, 124, 82, 0.1)',
-              borderBottom: '3px solid rgba(166, 124, 82, 0.3)'
+              borderBottom: '3px solid rgba(166, 124, 82, 0.3)',
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              borderRadius: '4px'
             }}>
-              <div className="service-icon">
-                <span>📋</span>
-              </div>
-              <h3>Project Consultation</h3>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: '#53565C' }}>Project Consultation</h3>
               <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.5" }}>Expert advice on material selection tailored to your specific project requirements and budget.</p>
             </div>
           </div>
