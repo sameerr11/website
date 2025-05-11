@@ -493,10 +493,14 @@ function Services() {
                 height: isMobile ? '300px' : '450px',
                 borderRadius: '0px',
                 overflow: 'hidden',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.15)'
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.15)',
+                width: isMobile ? '100%' : 'auto',
+                maxWidth: '100%'
               }}
             >
-              <InteriorPlanningShowcase />
+              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <InteriorPlanningShowcase />
+              </div>
             </motion.div>
           </div>
         </div>
