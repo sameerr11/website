@@ -130,25 +130,25 @@ function Services() {
       id: 1,
       title: 'Tiles & Stone',
       items: ['Porcelain Tiles', 'Ceramic Tiles', 'Natural Stone', 'Marble', 'Granite', 'Limestone'],
-      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Tiles+%26+Stone'
+      image: 'https://images.pexels.com/photos/5502227/pexels-photo-5502227.jpeg?auto=compress&cs=tinysrgb&w=1600'
     },
     {
       id: 2,
       title: 'Bathroom & Fixtures',
       items: ['Luxury Faucets', 'Designer Sinks', 'Shower Systems', 'Bathtubs', 'Toilets', 'Bathroom Accessories'],
-      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Bathroom+%26+Fixtures'
+      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 3,
       title: 'Building Materials',
       items: ['Premium Timber', 'Glass Solutions', 'Windows & Doors', 'Structural Elements', 'Insulation Materials', 'Roofing Systems'],
-      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Building+Materials'
+      image: 'https://images.pexels.com/photos/6908368/pexels-photo-6908368.jpeg?auto=compress&cs=tinysrgb&w=1600'
     },
     {
       id: 4,
       title: 'Interior Elements',
       items: ['Custom Furniture', 'Lighting Solutions', 'Wall Treatments', 'Decorative Panels', 'Ceiling Systems', 'Flooring Options'],
-      image: 'https://placehold.co/600x400/ECE7D0/53565C?text=Interior+Elements'
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop'
     }
   ];
 

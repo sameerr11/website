@@ -4,6 +4,14 @@ import { motion } from 'framer-motion';
 import '../App.css';
 import servicesImage from '../assets/services.png';
 
+// High-quality image URLs
+const highQualityMarbleUrl = "https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=2070&auto=format&fit=crop";
+const highQualityStoneUrl = "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop";
+const highQualityTileUrl = "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2069&auto=format&fit=crop";
+// Premium project images
+const premiumResidentialUrl = "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop";
+const premiumCommercialUrl = "https://images.unsplash.com/photo-1549499090-c9203d2b20ad?q=80&w=2000&auto=format&fit=crop";
+
 function Home() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -98,7 +106,7 @@ function Home() {
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="material-image marble"></div>
+            <div className="material-image marble" style={{ backgroundImage: `url(${highQualityMarbleUrl})` }}></div>
             <h3>Luxury Marble</h3>
             <p>Premium Italian and Portuguese marble for sophisticated interiors</p>
           </motion.div>
@@ -113,7 +121,7 @@ function Home() {
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="material-image granite"></div>
+            <div className="material-image granite" style={{ backgroundImage: `url(${highQualityStoneUrl})` }}></div>
             <h3>Natural Stone</h3>
             <p>Durable granite and limestone sourced from elite quarries worldwide</p>
           </motion.div>
@@ -128,7 +136,7 @@ function Home() {
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="material-image tile"></div>
+            <div className="material-image tile" style={{ backgroundImage: `url(${highQualityTileUrl})` }}></div>
             <h3>Designer Tiles</h3>
             <p>Artisanal ceramic and porcelain tiles for distinctive spaces</p>
           </motion.div>
@@ -268,7 +276,7 @@ function Home() {
             whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="project-image luxury-residential"></div>
+            <div className="project-image luxury-residential" style={{ backgroundImage: `url(${premiumResidentialUrl})` }}></div>
             <h3>La Maison Elegante</h3>
             <p>Luxury residential project featuring custom marble flooring and stone facades</p>
           </motion.div>
@@ -277,7 +285,7 @@ function Home() {
             whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="project-image commercial-tower"></div>
+            <div className="project-image commercial-tower" style={{ backgroundImage: `url(${premiumCommercialUrl})` }}></div>
             <h3>Meridian Tower</h3>
             <p>Premium commercial development with imported granite and limestone elements</p>
           </motion.div>
