@@ -178,10 +178,9 @@ function Contact() {
               lineHeight: '1.6',
               fontSize: '1rem'
             }}>
-              123 Business Street<br />
-              Suite 100<br />
-              City, State 12345<br />
-              United States
+              80 Gow St.<br />
+              Padstow, NSW 2162<br />
+              Australia
             </address>
           </motion.div>
           
@@ -217,10 +216,10 @@ function Contact() {
               }}></span>
             </h2>
             <p style={{ color: '#53565C', marginBottom: '0.6rem', fontSize: '1rem' }}>
-              <strong>Phone:</strong> (123) 456-7890
+              <strong>Email:</strong> info@stelladipietra.com
             </p>
             <p style={{ color: '#53565C', marginBottom: '0.6rem', fontSize: '1rem' }}>
-              <strong>Email:</strong> info@yourcompany.com
+              <strong>Website:</strong> stelladipietra.com.au
             </p>
             <p style={{ color: '#53565C', fontSize: '1rem' }}>
               <strong>Hours:</strong> Monday - Friday: 9am - 5pm

@@ -265,7 +265,7 @@ function Footer() {
               }}></span>
             </h3>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
-              <strong style={{ color: "#ECE7D0" }}>Address:</strong> 123 Construction Avenue, Building District, Country
+              <strong style={{ color: "#ECE7D0" }}>Address:</strong> 80 Gow St. Padstow, NSW 2162
             </motion.p>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
               <strong style={{ color: "#ECE7D0" }}>Phone:</strong> 
@@ -302,7 +302,21 @@ function Footer() {
               </motion.a>
             </motion.p>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
-              <strong style={{ color: "#ECE7D0" }}>Hours:</strong> Monday-Friday: 9am - 6pm
+              <strong style={{ color: "#ECE7D0" }}>Website:</strong> 
+              <motion.a 
+                href="https://stelladipietra.com.au" 
+                style={{ 
+                  color: "rgba(255, 255, 255, 0.8)", 
+                  textDecoration: "none", 
+                  marginLeft: "5px",
+                  transition: "color 0.3s ease"
+                }}
+                whileHover={{ color: "#ECE7D0" }}
+                onMouseOver={(e) => e.target.style.color = "#ECE7D0"}
+                onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.8)"}
+              >
+                stelladipietra.com.au
+              </motion.a>
             </motion.p>
           </motion.div>
         </motion.div>
