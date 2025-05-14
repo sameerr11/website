@@ -215,8 +215,77 @@ function About() {
             <h2>Ready to Elevate Your Construction Projects?</h2>
             <p>Partner with Stella Di Pietra for premium materials and seamless supply chain solutions.</p>
             <div className="cta-buttons">
-              <Link to="/contact" className="cta-button">Contact Our Team</Link>
-              <Link to="/catalogues" className="secondary-button">Browse Our Catalogues</Link>
+              <Link 
+                to="/contact" 
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "#A67C52",
+                  color: "#ffffff",
+                  padding: "1rem 2rem",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  borderRadius: "4px",
+                  transition: "all 0.3s ease",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  margin: "0.5rem",
+                  position: "relative",
+                  zIndex: 5,
+                  cursor: "pointer"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "#8e6a47";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0 7px 14px rgba(0, 0, 0, 0.15)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "#A67C52";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+              >
+                Contact Our Team
+              </Link>
+              <Link 
+                to="/catalogues" 
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "transparent",
+                  color: "#A67C52",
+                  padding: "0.9rem 1.8rem",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  borderRadius: "4px",
+                  transition: "all 0.3s ease",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+                  margin: "0.5rem",
+                  border: "2px solid #A67C52",
+                  position: "relative",
+                  zIndex: 5,
+                  cursor: "pointer"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "#A67C52";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0 7px 14px rgba(0, 0, 0, 0.15)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.05)";
+                  e.currentTarget.style.color = "#A67C52";
+                }}
+              >
+                Browse Our Catalogues
+              </Link>
             </div>
           </div>
         </div>
