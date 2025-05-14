@@ -299,12 +299,42 @@ function Catalogues() {
         <div className="request-content" data-scroll="fade-up">
           <h2>Need a Custom Catalogue?</h2>
           <p>Contact our team to request specialized documentation or custom product information tailored to your needs.</p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link to="/contact" className="cta-button">Request Custom Materials</Link>
-          </motion.div>
+          <div style={{ position: "relative", zIndex: 10 }}>
+            <Link 
+              to="/contact" 
+              style={{
+                display: "inline-block",
+                backgroundColor: "#A67C52",
+                color: "#ffffff",
+                padding: "1rem 2rem",
+                fontSize: "1rem",
+                fontWeight: 600,
+                textDecoration: "none",
+                borderRadius: "4px",
+                transition: "all 0.3s ease",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                position: "relative",
+                zIndex: 5,
+                cursor: "pointer"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = "#8e6a47";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0 7px 14px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = "#A67C52";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+            >
+              Request Custom Materials
+            </Link>
+          </div>
         </div>
       </section>
     </div>
