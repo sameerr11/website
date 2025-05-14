@@ -268,7 +268,7 @@ function Home() {
         </div>
       </section>
       
-      <section className="projects-showcase" data-aos="fade-up">
+      {/* <section className="projects-showcase" data-aos="fade-up">
         <h2>Featured Projects</h2>
         <div className="project-preview">
           <motion.div 
@@ -293,7 +293,7 @@ function Home() {
         <div className="projects-cta" data-aos="fade-up" data-aos-delay="200">
           <Link to="/portfolio" className="text-link">Explore Our Portfolio →</Link>
         </div>
-      </section>
+      </section> */}
       
       <section className="cta-section" data-aos="fade">
         <h2>Elevate Your Construction Projects</h2>

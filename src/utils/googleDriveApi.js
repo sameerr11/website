@@ -4,7 +4,7 @@
 
 // Google Drive API configuration
 const API_KEY = 'AIzaSyA30Nc2JkRZ6rLLW5GyRNw0TJf2ysP9qOo'; // API key for Google Drive
-const ROOT_FOLDER_ID = '1UR9zNrWN2Rzl9PUgJpRUON6vE7ga0awN'; // Updated root folder ID
+const ROOT_FOLDER_ID = '1tq6OlHrERqRxDM4VheuIoRl0PMRDVSBJ'; // Updated to new Google Drive folder ID
 
 // Mock data for development when API access is restricted
 const MOCK_CATALOGUES = [
@@ -85,40 +85,43 @@ export const fetchCatalogues = async () => {
   }
 
   try {
-    // Get all category folders directly from the root folder
-    const categoryFolders = await getCategoryFolders();
+    // Get PDFs directly from the root folder
+    console.log('Fetching PDFs directly from root folder');
+    const folderContents = await getFolderContents(ROOT_FOLDER_ID);
+    const pdfs = folderContents.filter(file => file.mimeType === 'application/pdf');
+    const images = folderContents.filter(file => file.mimeType.startsWith('image/'));
     
-    if (!categoryFolders || categoryFolders.length === 0) {
-      throw new Error('No category folders found');
+    if (!pdfs || pdfs.length === 0) {
+      throw new Error('No PDF files found in the root folder');
     }
     
-    // For each category folder, get the PDFs inside and any associated images
-    const catalogues = [];
-    for (const folder of categoryFolders) {
-      const folderContents = await getFolderContents(folder.id);
-      const pdfs = folderContents.filter(file => file.mimeType === 'application/pdf');
-      const images = folderContents.filter(file => file.mimeType.startsWith('image/'));
+    // Process each PDF into a catalogue entry
+    const catalogues = pdfs.map(pdf => {
+      const baseFileName = pdf.name.replace('.pdf', '');
+      const coverImage = findMatchingImage(images, baseFileName);
       
-      // Add each PDF to our catalogues array with folder name as category
-      pdfs.forEach(pdf => {
-        // Try to find a matching image for this PDF
-        const baseFileName = pdf.name.replace('.pdf', '');
-        const coverImage = findMatchingImage(images, baseFileName);
-        
-        catalogues.push({
-          id: pdf.id,
-          title: baseFileName,
-          // PDF preview as an image - directly displays first page of PDF
-          cover: `https://drive.google.com/file/d/${pdf.id}/preview`,
-          description: `${folder.name} catalogue`,
-          viewLink: `https://drive.google.com/file/d/${pdf.id}/view?usp=sharing`,
-          downloadLink: `https://drive.google.com/uc?export=download&id=${pdf.id}`,
-          category: folder.name.toLowerCase(),
-          // Add an embed link for PDF preview
-          embedLink: `https://drive.google.com/file/d/${pdf.id}/preview`
-        });
-      });
-    }
+      // Try to extract category from filename using common patterns
+      let category = 'general';
+      
+      // If filename contains category information such as "Category - Title" or "Category_Title"
+      const categoryMatch = baseFileName.match(/^(.*?)[\s\-_]+/);
+      if (categoryMatch && categoryMatch[1]) {
+        category = categoryMatch[1].toLowerCase().trim();
+      }
+      
+      return {
+        id: pdf.id,
+        title: baseFileName,
+        // PDF preview as an image - directly displays first page of PDF
+        cover: `https://drive.google.com/file/d/${pdf.id}/preview`,
+        description: `${category} catalogue`,
+        viewLink: `https://drive.google.com/file/d/${pdf.id}/view?usp=sharing`,
+        downloadLink: `https://drive.google.com/uc?export=download&id=${pdf.id}`,
+        category: category,
+        // Add an embed link for PDF preview
+        embedLink: `https://drive.google.com/file/d/${pdf.id}/preview`
+      };
+    });
     
     return catalogues;
   } catch (error) {
@@ -156,29 +159,6 @@ const findMatchingImage = (images, baseFileName) => {
   );
   
   return partialMatch || null;
-};
-
-/**
- * Gets all category folders from the root folder
- * @returns {Promise<Array>} Array of folder objects
- */
-const getCategoryFolders = async () => {
-  try {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${ROOT_FOLDER_ID}'+in+parents+and+mimeType='application/vnd.google-apps.folder'&key=${API_KEY}`;
-    
-    const response = await fetch(url);
-    const data = await response.json();
-    
-    if (data.error) {
-      console.error('Google API Error:', data.error);
-      throw new Error(`Google API Error: ${data.error.message}`);
-    }
-    
-    return data.files || [];
-  } catch (error) {
-    console.error('Error getting category folders:', error);
-    throw error;
-  }
 };
 
 /**

@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import MapComponent from '../components/MapComponent';
+import { 
+  COMPANY_ADDRESS,
+  COMPANY_NAME,
+  COMPANY_EMAIL,
+  COMPANY_WEBSITE
+} from '../config';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -596,19 +603,8 @@ function Contact() {
             margin: '0.8rem auto 0'
           }}></span>
         </h2>
-        <div className="map-placeholder" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          {/* Map would be integrated here using Google Maps or other map service */}
-          <div style={{ 
-            background: '#ECE7D0', 
-            height: '400px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            borderRadius: '8px',
-            boxShadow: '0 5px 15px rgba(0,0,0,0.08)'
-          }}>
-            <p style={{ color: '#53565C', fontSize: '1.2rem' }}>Map Integration Would Appear Here</p>
-          </div>
+        <div className="map-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <MapComponent address={COMPANY_ADDRESS} />
         </div>
       </motion.section>
     </div>

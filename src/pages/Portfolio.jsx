@@ -518,7 +518,7 @@ function Portfolio() {
         </div>
       </motion.section>
 
-      <motion.section 
+      {/* <motion.section 
         className="portfolio-section"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -786,7 +786,7 @@ function Portfolio() {
             ))}
           </motion.div>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 }

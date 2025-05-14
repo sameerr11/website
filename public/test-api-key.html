@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Maps API Key Test</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .info {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Google Maps API Key Test</h1>
+  
+  <div class="info">
+    <p>This page tests if your Google Maps API key is working correctly.</p>
+    <p>If you see a map below, your API key is working!</p>
+    <p>If you see an error or grey box, check your API key and Google Cloud Console settings.</p>
+  </div>
+  
+  <!-- Replace YOUR_API_KEY with your actual API key -->
+  <div id="api-key-input">
+    <label for="api-key">Enter your Google Maps API Key:</label>
+    <input type="text" id="api-key" style="width: 300px; padding: 5px;">
+    <button onclick="loadMap()">Test Key</button>
+  </div>
+  
+  <div id="map-container" style="margin-top: 20px;">
+    <div id="map"></div>
+  </div>
+
+  <script>
+    function loadMap() {
+      const apiKey = document.getElementById('api-key').value;
+      if (!apiKey) {
+        alert('Please enter an API key');
+        return;
+      }
+      
+      // Remove any existing script
+      const existingScript = document.getElementById('maps-script');
+      if (existingScript) {
+        existingScript.remove();
+      }
+      
+      // Create new script with the API key
+      const script = document.createElement('script');
+      script.id = 'maps-script';
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    function initMap() {
+      // Sydney, Australia coordinates
+      const sydney = { lat: -33.8688, lng: 151.2093 };
+      
+      // Create map centered at Sydney
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: sydney,
+      });
+      
+      // Add marker at Sydney
+      const marker = new google.maps.Marker({
+        position: sydney,
+        map: map,
+        title: "Sydney, Australia",
+      });
+      
+      // Add success message
+      const mapContainer = document.getElementById('map-container');
+      const successMsg = document.createElement('p');
+      successMsg.textContent = "✅ Success! Your API key is working correctly.";
+      successMsg.style.color = "green";
+      successMsg.style.fontWeight = "bold";
+      successMsg.style.marginTop = "10px";
+      
+      // Remove any previous message
+      const prevMsg = document.querySelector('#map-container > p');
+      if (prevMsg) prevMsg.remove();
+      
+      mapContainer.appendChild(successMsg);
+    }
+
+    window.onerror = function(message, source, lineno, colno, error) {
+      if (source.includes('maps.googleapis.com')) {
+        const mapContainer = document.getElementById('map-container');
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = "❌ Error: " + message;
+        errorMsg.style.color = "red";
+        errorMsg.style.fontWeight = "bold";
+        errorMsg.style.marginTop = "10px";
+        
+        // Remove any previous message
+        const prevMsg = document.querySelector('#map-container > p');
+        if (prevMsg) prevMsg.remove();
+        
+        mapContainer.appendChild(errorMsg);
+      }
+      return false;
+    };
+  </script>
+</body>
+</html> 
