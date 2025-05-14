@@ -81,14 +81,42 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Link to="/catalogues" className="cta-button">
-              <motion.span 
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a 
+                href="/catalogues"
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "#A67C52",
+                  color: "#ffffff",
+                  padding: "1rem 2rem",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  borderRadius: "4px",
+                  transition: "all 0.3s ease",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "#8e6a47";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0 7px 14px rgba(0, 0, 0, 0.15)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "#A67C52";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
               >
                 Explore Our Collections
-              </motion.span>
-            </Link>
+              </a>
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -298,9 +326,42 @@ function Home() {
       <section className="cta-section" data-aos="fade">
         <h2>Elevate Your Construction Projects</h2>
         <p>Partner with Stella Di Pietra for unmatched quality and expertise</p>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Link to="/contact" className="primary-button">Contact Our Specialists</Link>
-        </motion.div>
+        <div style={{ position: "relative", zIndex: 10 }}>
+          <Link 
+            to="/contact" 
+            style={{
+              display: "inline-block",
+              backgroundColor: "#A67C52",
+              color: "#ffffff",
+              padding: "1rem 2rem",
+              fontSize: "1rem",
+              fontWeight: 600,
+              textDecoration: "none",
+              borderRadius: "4px",
+              transition: "all 0.3s ease",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              position: "relative",
+              zIndex: 5,
+              cursor: "pointer"
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = "#8e6a47";
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 7px 14px rgba(0, 0, 0, 0.15)";
+              e.currentTarget.style.color = "#ffffff";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = "#A67C52";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.color = "#ffffff";
+            }}
+          >
+            Contact Our Specialists
+          </Link>
+        </div>
       </section>
     </motion.div>
   );
