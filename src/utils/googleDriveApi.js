@@ -113,18 +113,25 @@ export const fetchCatalogues = async () => {
         category = baseFileName.toLowerCase().trim();
       }
       
+      console.log('Original PDF name:', pdf.name, 'Extracted category:', category);
+      
       // Specific category mapping - map generic names to specific ones
       const categoryMappings = {
         'general': 'furniture',  // Map 'general' to 'furniture'
+        'stair': 'staircase',    // Handle variations of staircase
+        'staire': 'staircase',
       };
       
       // Apply the mapping if it exists
       if (categoryMappings[category]) {
+        const originalCategory = category;
         category = categoryMappings[category];
+        console.log('Mapped category from', originalCategory, 'to', category);
       }
       
       // Use static cover images from public/covers
       const coverPath = `/covers/${category.replace(/\s+/g, '-')}.png`;
+      console.log('Cover path to be used:', coverPath);
       
       return {
         id: pdf.id,

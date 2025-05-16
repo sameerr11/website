@@ -5,25 +5,73 @@ import { fetchCatalogues } from '../utils/googleDriveApi';
 import '../styles/catalogues.css'; // Import dedicated CSS
 
 // Custom PDF preview component with fallback
-const PDFPreview = ({ catalogue }) => {
+const PDFPreview = ({ catalogue, forcedImagePath }) => {
+  // Direct mapping to exact filenames in the covers directory
+  const exactFileMap = {
+    'staircase': 'staircase.png',
+    'stair': 'staircase.png',
+    'stair case': 'staircase.png',
+    'staire': 'staircase.png',
+    'staire case': 'staircase.png',
+    'staire-case': 'staircase.png',
+    'glass': 'glass-mosaic.png',
+    'glass mosaic': 'glass-mosaic.png',
+    'mosaic': 'glass-mosaic.png',
+    'mosiac': 'glass-mosaic.png',
+    'furniture': 'furniture.png',
+    'laundry': 'laundry.png',
+    'fireplace': 'fireplace.png',
+    'crystal': 'crystal.png',
+    'tv': 'tv.png',
+    'stone': 'stone.png',
+    'lightening': 'lightenings.png',
+    'lightening': 'lightenings.png',
+    'pergola': 'pergola.png',
+    'switches': 'switches.png',
+    'furnishings': 'furnishings.png',
+    'default': 'furniture.png'
+  };
+  
+  // Determine the exact image file to use
+  let imageFile = exactFileMap.default;
+  
+  // Try to match the category to an exact file
+  const categoryLower = catalogue.category.toLowerCase().trim();
+  
+  // Check for direct matches or partial matches
+  for (const [key, file] of Object.entries(exactFileMap)) {
+    if (categoryLower === key || categoryLower.includes(key)) {
+      imageFile = file;
+      console.log(`Matched category '${categoryLower}' to file '${imageFile}'`);
+      break;
+    }
+  }
+  
+  // Title-based overrides for specific cases
+  if (catalogue.title.toLowerCase().includes('stair')) {
+    imageFile = 'staircase.png';
+    console.log('Title contains stair, using staircase.png');
+  } else if (catalogue.title.toLowerCase().includes('glass')) {
+    imageFile = 'glass-mosaic.png';
+    console.log('Title contains glass, using glass-mosaic.png');
+  }
+  
+  // Use forced path if provided (from parent component)
+  const imagePath = forcedImagePath || `/covers/${imageFile}`;
+  console.log('Final image path:', imagePath);
+  
   return (
     <div className="catalogue-cover pdf-embed-container">
       <img 
-        src={`/covers/${catalogue.category.replace(/\s+/g, '-').toLowerCase()}.png`} 
+        src={imagePath} 
         alt={catalogue.title}
         onError={(e) => {
-          // If image not found, use a category-specific fallback
-          const categoryFallbacks = {
-            'general': 'furniture',
-            'default': 'furniture'
-          };
-          
-          // Look up in our fallbacks or use the catalogue title
-          const fallbackCategory = categoryFallbacks[catalogue.category] || categoryFallbacks.default;
-          e.target.src = `/covers/${fallbackCategory}.png`;
+          console.log('Image not found, using furniture fallback');
+          e.target.src = `/covers/furniture.png`;
           
           // If that also fails, use an online placeholder
           e.onerror = () => {
+            console.log('Fallback also failed, using placeholder');
             e.target.src = 'https://placehold.co/400x500/ECE7D0/333333?text=' + encodeURIComponent(catalogue.title);
             e.onerror = null; // Prevent infinite loops
           };
@@ -56,6 +104,12 @@ function Catalogues() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [categories, setCategories] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Function to force reload with cache busting
+  const forceRefresh = () => {
+    const cacheBuster = `?cb=${Date.now()}`;
+    window.location.href = window.location.pathname + cacheBuster;
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -226,29 +280,47 @@ function Catalogues() {
             animate="visible"
           >
             {filteredCatalogues.length > 0 ? (
-              filteredCatalogues.map((catalogue, index) => (
-                <motion.div 
-                  key={catalogue.id} 
-                  className="catalogue-card"
-                  variants={itemVariants}
-                  data-scroll="fade-up"
-                  data-scroll-delay={index * 100}
-                  whileHover={{ 
-                    y: -15,
-                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
-                  }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <PDFPreview catalogue={catalogue} />
-                  <div className="catalogue-details">
-                    <h3>{catalogue.title}</h3>
-                    <p>{catalogue.description}</p>
-                    <div className="catalogue-actions">
-                      <span className="catalogue-category">{catalogue.category}</span>
+              filteredCatalogues.map((catalogue, index) => {
+                // Create a custom prop to force specific image paths for troublesome categories
+                let forcedImagePath = null;
+                
+                // Force specific image paths based on heading/title/category regardless of metadata
+                if (catalogue.title.toLowerCase().includes('stair') || 
+                    catalogue.category.toLowerCase().includes('stair') ||
+                    catalogue.description.toLowerCase().includes('stair')) {
+                  forcedImagePath = '/covers/staircase.png';
+                  console.log('FORCING stair image for:', catalogue.title);
+                } else if (catalogue.title.toLowerCase().includes('glass') || 
+                          catalogue.category.toLowerCase().includes('glass') ||
+                          catalogue.description.toLowerCase().includes('glass')) {
+                  forcedImagePath = '/covers/glass-mosaic.png';
+                  console.log('FORCING glass image for:', catalogue.title);
+                }
+                
+                return (
+                  <motion.div 
+                    key={catalogue.id} 
+                    className="catalogue-card"
+                    variants={itemVariants}
+                    data-scroll="fade-up"
+                    data-scroll-delay={index * 100}
+                    whileHover={{ 
+                      y: -15,
+                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <PDFPreview catalogue={catalogue} forcedImagePath={forcedImagePath} />
+                    <div className="catalogue-details">
+                      <h3>{catalogue.title}</h3>
+                      <p>{catalogue.description}</p>
+                      <div className="catalogue-actions">
+                        <span className="catalogue-category">{catalogue.category}</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))
+                  </motion.div>
+                )
+              })
             ) : (
               <div className="no-results" data-scroll="fade">
                 <p>No catalogues found in this category.</p>
