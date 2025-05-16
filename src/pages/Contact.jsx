@@ -223,7 +223,7 @@ function Contact() {
               }}></span>
             </h2>
             <p style={{ color: '#53565C', marginBottom: '0.6rem', fontSize: '1rem' }}>
-              <strong>Email:</strong> info@stelladipietra.com
+              <strong>Email:</strong> info@stelladipietra.com.au
             </p>
             <p style={{ color: '#53565C', marginBottom: '0.6rem', fontSize: '1rem' }}>
               <strong>Website:</strong> stelladipietra.com.au

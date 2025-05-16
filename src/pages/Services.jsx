@@ -141,7 +141,7 @@ function Services() {
     {
       id: 3,
       title: 'Building Materials',
-      items: ['Premium Timber', 'Glass Solutions', 'Windows & Doors', 'Structural Elements', 'Insulation Materials', 'Roofing Systems'],
+      items: ['Premium Timber', 'Glass Solutions', 'Windows & Doors', 'Structural Elements'],
       image: 'https://images.pexels.com/photos/6908368/pexels-photo-6908368.jpeg?auto=compress&cs=tinysrgb&w=1600'
     },
     {

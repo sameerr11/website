@@ -2,70 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fetchCatalogues } from '../utils/googleDriveApi';
+import '../styles/catalogues.css'; // Import dedicated CSS
 
 // Custom PDF preview component with fallback
 const PDFPreview = ({ catalogue }) => {
-  const [previewError, setPreviewError] = useState(false);
-
   return (
     <div className="catalogue-cover pdf-embed-container">
-      {!previewError ? (
-        <iframe 
-          src={catalogue.embedLink}
-          title={catalogue.title}
-          frameBorder="0"
-          scrolling="no"
-          className="pdf-embed"
-          onError={() => setPreviewError(true)}
-        ></iframe>
-      ) : (
-        <div 
-          className="pdf-fallback"
-          style={{
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#f4f4f4',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
-            textAlign: 'center'
-          }}
-        >
-          <div style={{ marginBottom: '15px' }}>
-            <svg width="50" height="60" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M45 15H30V5L45 15Z" fill="#A67C52" />
-              <path d="M30 5H5C3.34 5 2 6.34 2 8V52C2 53.66 3.34 55 5 55H45C46.66 55 48 53.66 48 52V15L30 5Z" stroke="#A67C52" strokeWidth="2" />
-              <path d="M15 30H35M15 40H35" stroke="#A67C52" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </div>
-          <h3 style={{ 
-            color: '#333', 
-            fontSize: '1.5rem',
-            margin: '10px 0',
-            fontWeight: 'bold' 
-          }}>{catalogue.title}</h3>
-          <a 
-            href={catalogue.downloadLink} 
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: '#A67C52',
-              color: 'white',
-              padding: '8px 20px',
-              borderRadius: '4px',
-              textDecoration: 'none',
-              display: 'inline-block',
-              marginTop: '15px',
-              fontWeight: '500',
-              fontSize: '0.9rem'
-            }}
-          >
-            Download PDF
-          </a>
-        </div>
-      )}
+      <img 
+        src={`/covers/${catalogue.category.replace(/\s+/g, '-').toLowerCase()}.png`} 
+        alt={catalogue.title}
+        onError={(e) => {
+          // If image not found, use a category-specific fallback
+          const categoryFallbacks = {
+            'general': 'furniture',
+            'default': 'furniture'
+          };
+          
+          // Look up in our fallbacks or use the catalogue title
+          const fallbackCategory = categoryFallbacks[catalogue.category] || categoryFallbacks.default;
+          e.target.src = `/covers/${fallbackCategory}.png`;
+          
+          // If that also fails, use an online placeholder
+          e.onerror = () => {
+            e.target.src = 'https://placehold.co/400x500/ECE7D0/333333?text=' + encodeURIComponent(catalogue.title);
+            e.onerror = null; // Prevent infinite loops
+          };
+        }}
+      />
       <motion.div 
         className="catalogue-overlay"
         initial={{ opacity: 0 }}

@@ -287,7 +287,7 @@ function Footer() {
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
               <strong style={{ color: "#ECE7D0" }}>Email:</strong> 
               <motion.a 
-                href="mailto:info@stelladipietra.com" 
+                href="mailto:info@stelladipietra.com.au" 
                 style={{ 
                   color: "rgba(255, 255, 255, 0.8)", 
                   textDecoration: "none", 
@@ -298,7 +298,7 @@ function Footer() {
                 onMouseOver={(e) => e.target.style.color = "#ECE7D0"}
                 onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.8)"}
               >
-                info@stelladipietra.com
+                info@stelladipietra.com.au
               </motion.a>
             </motion.p>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>

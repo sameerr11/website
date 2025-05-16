@@ -1469,19 +1469,7 @@ section h2::after {
   border-bottom: 1px solid rgba(83, 86, 92, 0.08);
 }
 
-.pdf-embed-container {
-  position: relative;
-  height: 100%;
-  background-color: rgba(83, 86, 92, 0.03);
-}
-
-.pdf-embed {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: rgba(83, 86, 92, 0.04);
-  transition: opacity 0.4s ease;
-}
+.pdf-embed-container {  position: relative;  height: 350px;  background-color: rgba(83, 86, 92, 0.03);  overflow: hidden;}.pdf-embed-container img {  width: 100%;  height: 100%;  object-fit: contain;  object-position: center;  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);}.catalogue-card:hover .pdf-embed-container img {  transform: scale(1.05);}
 
 .catalogue-cover img {
   width: 100%;

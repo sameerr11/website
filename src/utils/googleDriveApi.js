@@ -100,26 +100,41 @@ export const fetchCatalogues = async () => {
       const baseFileName = pdf.name.replace('.pdf', '');
       const coverImage = findMatchingImage(images, baseFileName);
       
-      // Try to extract category from filename using common patterns
-      let category = 'general';
+      // Extract the category from filename
+      let category;
       
+      // Try to extract category from filename using common patterns
       // If filename contains category information such as "Category - Title" or "Category_Title"
       const categoryMatch = baseFileName.match(/^(.*?)[\s\-_]+/);
       if (categoryMatch && categoryMatch[1]) {
         category = categoryMatch[1].toLowerCase().trim();
+      } else {
+        // If no category could be extracted, use the full filename as the category
+        category = baseFileName.toLowerCase().trim();
       }
+      
+      // Specific category mapping - map generic names to specific ones
+      const categoryMappings = {
+        'general': 'furniture',  // Map 'general' to 'furniture'
+      };
+      
+      // Apply the mapping if it exists
+      if (categoryMappings[category]) {
+        category = categoryMappings[category];
+      }
+      
+      // Use static cover images from public/covers
+      const coverPath = `/covers/${category.replace(/\s+/g, '-')}.png`;
       
       return {
         id: pdf.id,
         title: baseFileName,
-        // PDF preview as an image - directly displays first page of PDF
-        cover: `https://drive.google.com/file/d/${pdf.id}/preview`,
+        // Use static cover image rather than PDF preview
+        cover: coverPath,
         description: `${category} catalogue`,
         viewLink: `https://drive.google.com/file/d/${pdf.id}/view?usp=sharing`,
         downloadLink: `https://drive.google.com/uc?export=download&id=${pdf.id}`,
-        category: category,
-        // Add an embed link for PDF preview
-        embedLink: `https://drive.google.com/file/d/${pdf.id}/preview`
+        category: category
       };
     });
     
@@ -208,4 +223,6 @@ const getPDFsInFolder = async (folderId) => {
     console.error('Error getting PDFs:', error);
     throw error;
   }
-}; 
+};
+
+ 
