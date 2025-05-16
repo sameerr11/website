@@ -25,7 +25,7 @@ const PDFPreview = ({ catalogue, forcedImagePath }) => {
     'tv': 'tv.png',
     'stone': 'stone.png',
     'lightening': 'lightenings.png',
-    'lightening': 'lightenings.png',
+    'lighting': 'lightenings.png',
     'pergola': 'pergola.png',
     'switches': 'switches.png',
     'furnishings': 'furnishings.png',
