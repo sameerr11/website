@@ -313,7 +313,7 @@ function Catalogues() {
                     <PDFPreview catalogue={catalogue} forcedImagePath={forcedImagePath} />
                     <div className="catalogue-details">
                       <h3>{catalogue.title}</h3>
-                      <p>{catalogue.description}</p>
+                     
                       <div className="catalogue-actions">
                         <span className="catalogue-category">{catalogue.category}</span>
                       </div>
