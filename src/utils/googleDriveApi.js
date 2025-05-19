@@ -97,51 +97,22 @@ export const fetchCatalogues = async () => {
     
     // Process each PDF into a catalogue entry
     const catalogues = pdfs.map(pdf => {
-      const baseFileName = pdf.name.replace('.pdf', '');
-      const coverImage = findMatchingImage(images, baseFileName);
+      // Remove .pdf extension and convert to lowercase
+      const baseFileName = pdf.name.replace('.pdf', '').toLowerCase().trim();
       
-      // Extract the category from filename
-      let category;
-      
-      // Try to extract category from filename using common patterns
-      // If filename contains category information such as "Category - Title" or "Category_Title"
-      const categoryMatch = baseFileName.match(/^(.*?)[\s\-_]+/);
-      if (categoryMatch && categoryMatch[1]) {
-        category = categoryMatch[1].toLowerCase().trim();
-      } else {
-        // If no category could be extracted, use the full filename as the category
-        category = baseFileName.toLowerCase().trim();
-      }
-      
-      console.log('Original PDF name:', pdf.name, 'Extracted category:', category);
-      
-      // Specific category mapping - map generic names to specific ones
-      const categoryMappings = {
-        'general': 'furniture',  // Map 'general' to 'furniture'
-        'stair': 'staircase',    // Handle variations of staircase
-        'staire': 'staircase',
-      };
-      
-      // Apply the mapping if it exists
-      if (categoryMappings[category]) {
-        const originalCategory = category;
-        category = categoryMappings[category];
-        console.log('Mapped category from', originalCategory, 'to', category);
-      }
-      
-      // Use static cover images from public/covers
-      const coverPath = `/covers/${category.replace(/\s+/g, '-')}.png`;
-      console.log('Cover path to be used:', coverPath);
+      // Use the exact filename (without extension) as the lookup key for the cover image
+      // This ensures direct matching between PDF filenames and cover image filenames
+      const coverPath = `/covers/${baseFileName}.png`;
+      console.log('PDF name:', pdf.name, 'Cover path:', coverPath);
       
       return {
         id: pdf.id,
         title: baseFileName,
-        // Use static cover image rather than PDF preview
         cover: coverPath,
-        description: `${category} catalogue`,
+        description: `${baseFileName} catalogue`,
         viewLink: `https://drive.google.com/file/d/${pdf.id}/view?usp=sharing`,
         downloadLink: `https://drive.google.com/uc?export=download&id=${pdf.id}`,
-        category: category
+        category: baseFileName
       };
     });
     

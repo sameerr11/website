@@ -142,6 +142,8 @@
   font-weight: 600;
   position: relative;
   padding-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .catalogue-details h3::after {

@@ -6,59 +6,13 @@ import '../styles/catalogues.css'; // Import dedicated CSS
 
 // Custom PDF preview component with fallback
 const PDFPreview = ({ catalogue, forcedImagePath }) => {
-  // Direct mapping to exact filenames in the covers directory
-  const exactFileMap = {
-    'staircase': 'staircase.png',
-    'stair': 'staircase.png',
-    'stair case': 'staircase.png',
-    'staire': 'staircase.png',
-    'staire case': 'staircase.png',
-    'staire-case': 'staircase.png',
-    'glass': 'glass-mosaic.png',
-    'glass mosaic': 'glass-mosaic.png',
-    'mosaic': 'glass-mosaic.png',
-    'mosiac': 'glass-mosaic.png',
-    'furniture': 'furniture.png',
-    'laundry': 'laundry.png',
-    'fireplace': 'fireplace.png',
-    'crystal': 'crystal.png',
-    'tv': 'tv.png',
-    'stone': 'stone.png',
-    'lightening': 'lightenings.png',
-    'lighting': 'lightenings.png',
-    'pergola': 'pergola.png',
-    'switches': 'switches.png',
-    'furnishings': 'furnishings.png',
-    'default': 'furniture.png'
-  };
-  
-  // Determine the exact image file to use
-  let imageFile = exactFileMap.default;
-  
-  // Try to match the category to an exact file
-  const categoryLower = catalogue.category.toLowerCase().trim();
-  
-  // Check for direct matches or partial matches
-  for (const [key, file] of Object.entries(exactFileMap)) {
-    if (categoryLower === key || categoryLower.includes(key)) {
-      imageFile = file;
-      console.log(`Matched category '${categoryLower}' to file '${imageFile}'`);
-      break;
-    }
-  }
-  
-  // Title-based overrides for specific cases
-  if (catalogue.title.toLowerCase().includes('stair')) {
-    imageFile = 'staircase.png';
-    console.log('Title contains stair, using staircase.png');
-  } else if (catalogue.title.toLowerCase().includes('glass')) {
-    imageFile = 'glass-mosaic.png';
-    console.log('Title contains glass, using glass-mosaic.png');
-  }
+  // Determine the image file to use - directly use the catalogue title
+  // This ensures that the PDF filename and cover image filename are in sync
+  let imageFile = `${catalogue.title.toLowerCase()}.png`;
   
   // Use forced path if provided (from parent component)
   const imagePath = forcedImagePath || `/covers/${imageFile}`;
-  console.log('Final image path:', imagePath);
+  console.log('Using image path:', imagePath, 'for catalogue:', catalogue.title);
   
   return (
     <div className="catalogue-cover pdf-embed-container">
@@ -281,21 +235,9 @@ function Catalogues() {
           >
             {filteredCatalogues.length > 0 ? (
               filteredCatalogues.map((catalogue, index) => {
-                // Create a custom prop to force specific image paths for troublesome categories
-                let forcedImagePath = null;
-                
-                // Force specific image paths based on heading/title/category regardless of metadata
-                if (catalogue.title.toLowerCase().includes('stair') || 
-                    catalogue.category.toLowerCase().includes('stair') ||
-                    catalogue.description.toLowerCase().includes('stair')) {
-                  forcedImagePath = '/covers/staircase.png';
-                  console.log('FORCING stair image for:', catalogue.title);
-                } else if (catalogue.title.toLowerCase().includes('glass') || 
-                          catalogue.category.toLowerCase().includes('glass') ||
-                          catalogue.description.toLowerCase().includes('glass')) {
-                  forcedImagePath = '/covers/glass-mosaic.png';
-                  console.log('FORCING glass image for:', catalogue.title);
-                }
+                // We're no longer using complex forced image path logic
+                // The image path is now directly derived from the PDF filename
+                const forcedImagePath = null;
                 
                 return (
                   <motion.div 
@@ -312,7 +254,7 @@ function Catalogues() {
                   >
                     <PDFPreview catalogue={catalogue} forcedImagePath={forcedImagePath} />
                     <div className="catalogue-details">
-                      <h3>{catalogue.title}</h3>
+                      <h3>{catalogue.title.toUpperCase()}</h3>
                      
                       <div className="catalogue-actions">
                         <span className="catalogue-category">{catalogue.category}</span>
