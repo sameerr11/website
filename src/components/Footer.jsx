@@ -265,7 +265,7 @@ function Footer() {
               }}></span>
             </h3>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
-              <strong style={{ color: "#ECE7D0" }}>Address:</strong> 80 Gow St. Padstow, NSW 2162
+              <strong style={{ color: "#ECE7D0" }}>Address:</strong> 80 Gow St. Padstow, NSW 2211
             </motion.p>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
               <strong style={{ color: "#ECE7D0" }}>Phone:</strong> 
@@ -281,7 +281,7 @@ function Footer() {
                 onMouseOver={(e) => e.target.style.color = "#ECE7D0"}
                 onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.8)"}
               >
-                +1 (555) 123-4567
+                +61 404 312 312
               </motion.a>
             </motion.p>
             <motion.p variants={itemVariants} style={{ marginBottom: "0.8rem", color: "rgba(255, 255, 255, 0.8)" }}>

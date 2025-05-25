@@ -186,7 +186,7 @@ function Contact() {
               fontSize: '1rem'
             }}>
               80 Gow St.<br />
-              Padstow, NSW 2162<br />
+              Padstow, NSW 2211<br />
               Australia
             </address>
           </motion.div>
